@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/aos/dist/aos.css'; 
+.popover{
+    width: 180px;
+}
+.popover-body{
+    padding: 0px;
+}
+.popover-body hr{
+    margin: 0px;    
+}
+.popover-body div{
+    padding: 10px;
+}
+.popover-body div:hover{
+    background-color: #5FBA51;
+    color: #fff;
+}
+.modal-content{
+    border: 1px solid #5FBA51;
+    border-radius: 10px;
+}
+.modal.show .modal-dialog{
+    max-width: 80%;
+
+}
+.modal-body{
+    max-width: 500px;
+}

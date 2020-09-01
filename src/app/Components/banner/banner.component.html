@@ -1,0 +1,231 @@
+<ng-template #content let-modal>
+    <div class="modal-body container">
+        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
+          </button>
+      <form>
+        <div class="form-group">
+            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Iniciar sesión</h3>
+            <div class="input-group col-md-6 offset-3">
+                <label style="color: #35A09C; text-align: left;">Usuario</label>
+            </div>
+            <div class="input-group col-md-6 offset-3">
+                <input type="email" style="color: #000000;" class="form-control">
+            </div>
+            <div class="input-group col-md-6 offset-3 pt-3s">
+                <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            </div>
+            <div class="input-group col-md-6 offset-3">
+                <input type="password" style="color: #000000;" class="form-control">
+            </div>
+            <h5 _ngcontent-deb-c103="" class="py-3" style="font-size: 12px;/* font-weight: bold; */color: #35A09C;text-align: center;">¿Olvidaste tu contraseña?</h5>
+            <div _ngcontent-msr-c103="" _ngcontent-dub-c17="" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;" (click)="modal.dismiss('Cross click');open(content2)"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;" > Ingresar</div>
+            <h5 _ngcontent-deb-c103="" class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿No tienes una cuenta?</h5>
+            <h5 _ngcontent-deb-c103="" class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" (click)="modal.dismiss('Cross click');open(content1)">Regístrate</h5>
+        </div>
+      </form>
+    </div>
+</ng-template>
+<ng-template #content1 let-modal>
+    <div class="modal-body container">
+        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
+          </button>
+      <form>
+        <div class="form-group">
+            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Crear cuenta</h3>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;">Nombre</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;" value="secret">Celular</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;">Correo</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="input-group">
+                    <input type="password" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="form-check col-6 float-left offset-3 pt-4">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label _ngcontent-tby-c103="" _ngcontent-deb-c103="" style="font-size: 12px; /* font-weight: bold; */color: #35A09C; text-align: center;">Aceptar términos y condiciones</label>
+            </div>
+            <div _ngcontent-msr-c103="" _ngcontent-dub-c17="" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;">Enviar</div>
+            <h5 _ngcontent-deb-c103="" class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿Ya tienes una cuenta?</h5>
+            <h5 _ngcontent-deb-c103="" class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" (click)="modal.dismiss('Cross click');open(content)">Inicia sesión</h5>
+        </div>
+      </form>
+    </div>
+</ng-template>
+<ng-template #content2 let-modal>
+    <div class="modal-body container">
+        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
+          </button>
+      <form>
+        <div class="form-group">
+            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Mi cuenta</h3>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;">Nombre</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;" value="secret">Celular</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;">Correo</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="float-left col-md-6 pt-5">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="input-group">
+                    <input type="password" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <label class="col-12 m" style="font-size: 12px;color: #35A09C;margin-right: 20px;text-align: right;" id="cambiar" onclick="document.getElementById('cambiar').style.display='none'; document.getElementById('nueva').classList.remove('d-none');">Cambiar contraseña</label>
+            <div class="float-right col-md-6 d-none" id="nueva">
+                <div class="input-group">
+                    <label style="color: #35A09C; text-align: left;" value="secret">Nueva Contraseña</label>
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="input-group">
+                    <input type="password" style="color: #000000;" class="form-control">
+                </div>
+            </div>
+            <div class="btn mt-5" style="background: linear-gradient(#5FBA51,#329D9C ); box-shadow: 0px 2px 9px #329D9C36; border-radius: 15px; color: #fff; font-weight: 700; margin-left: 36%;"><img style="height: 30px;">Actualizar</div>
+        </div>
+      </form>
+    </div>
+</ng-template>
+<ng-template #content let-modal>
+    <div class="modal-body container">
+        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
+          </button>
+      <form>
+        <div class="form-group">
+            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Iniciar sesión</h3>
+            <h5 _ngcontent-deb-c103="" class="py-3" style="font-size: 12px;/* font-weight: bold; */color: #35A09C;text-align: center;">¿Olvidaste tu contraseña?</h5>
+            <div _ngcontent-msr-c103="" _ngcontent-dub-c17="" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;" (click)="modal.dismiss('Cross click');open(content2)"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;" > Ingresar</div>
+            <h5 _ngcontent-deb-c103="" class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿No tienes una cuenta?</h5>
+            <h5 _ngcontent-deb-c103="" class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" (click)="modal.dismiss('Cross click');open(content1)">Regístrate</h5>
+        </div>
+      </form>
+    </div>
+</ng-template>
+<div class="container px-0">
+    <nav class="navbar navbar-expand-sm navbar-light"> 
+        <a class="navbar-brand" href="#"> 
+            <img src= "./assets/img/imp.png" alt="logo" style="height: 70px;"> 
+        </a> 
+        <img src="./assets/img/user.svg" alt="" style="height: 30px;" class="d-md-none d-block">
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapse_Navbar"> 
+          
+            <span class="navbar-toggler-icon"></span> 
+        </button> 
+
+        <div class="collapse navbar-collapse"
+            id="collapse_Navbar"> 
+            <ul class="navbar-nav w-100"> 
+                <li class="nav-item active col-2"> 
+                    <a class="nav-link"
+                    data-toggle="tab"
+                    href="#home" (click)="inicio()"> 
+                    INICIO
+                </a> 
+                </li> 
+                <ng-template #popContent>
+                    <div>Linea KENXIN</div><hr>
+                    <div>Laboratorio clínico</div><hr>
+                    <div>Médico quirúrgico</div><hr>
+                    <div>Instrumental</div><hr>
+                    <div>Muebles hospitalarios</div>
+                </ng-template>
+                <li class="nav-item col-3"> 
+                    <a class="nav-link"  id="productos" [ngbPopover]="popContent" placement="bottom" ngbPopover="This is simple example form ItSolutionStuff.com" (click)="productos()"> 
+                    PRODUCTOS 
+                </a> 
+                </li> 
+
+                <li class="nav-item col-3"> 
+                    <a class="nav-link"
+                    data-toggle="tab"
+                    href="#ds" (click)="Contacto()"> 
+                    CONTACTO
+                </a> 
+                </li> 
+
+                <li class="nav-item col-3"> 
+                    <a class="nav-link"
+                    data-toggle="tab"
+                    href="#lang"> 
+                    MI LISTA
+                </a> 
+                </li> 
+            </ul> 
+        </div> 
+        <img src="./assets/img/user.svg" alt="" style="height: 30px;"  (click)="open(content)" class="d-md-block d-none" *ngIf="show">
+        <img src="./assets/img/user.svg" alt="" style="height: 30px;"  (click)="open(content)" class="d-md-block d-none" *ngIf="!show" [ngbPopover]="popContent2">
+        <ng-template #popContent2>
+            <div>Mi cuenta</div><hr>
+            <div>Cerrar sesión</div><hr>
+        </ng-template>
+    </nav> 
+</div>
+<div style="background: linear-gradient(48deg,#5FBA51,#329D9C );" class="py-5">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm text-md-left text-center px-5 py-3" style="color: #fff">
+            CARRERA 18 No 39A - 50 BOGOTÁ, COLOMBIA.<br> CORREO: ventas@implemedica.com.co
+        </div>
+        <div class="col-sm py-3 text-center" style="color: #fff;">
+            <h5>IMPLEMEDICA LTDA.</h5>
+            <img src="./assets/img/LogoYoutube.png" alt="">&nbsp;&nbsp;&nbsp;<img src="./assets/img/instagram.png" alt="">&nbsp;&nbsp;&nbsp;<img src="./assets/img/whatsapp.png" alt="">&nbsp;&nbsp;&nbsp;<img src="./assets/img/facebook.png" alt="">&nbsp;&nbsp;&nbsp;<img src="./assets/img/LogoLinkedIn.png" alt="">
+        </div>
+            <div class="col-sm text-md-right text-center px-5 py-3" style="color: #fff">
+                TELÉFONO: 245 5922 <br> 232 8693  <br>CELULAR: 316 830 1731 <br> 310 696 4517
+            </div>
+        </div>
+    </div>
+</div>
