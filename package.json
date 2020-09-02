@@ -7,10 +7,17 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
+  "engine": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
   "dependencies": {
+    "@angular/cli": "~10.0.7",
+    "@angular/compiler-cli": "~10.0.11",
     "@angular/animations": "~10.0.11",
     "@angular/common": "~10.0.11",
     "@angular/compiler": "~10.0.11",
@@ -27,16 +34,18 @@
     "path": "^0.12.7",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.10.3",
+    "typescript": "~3.9.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.7",
     "@angular/cli": "~10.0.7",
     "@angular/compiler-cli": "~10.0.11",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
