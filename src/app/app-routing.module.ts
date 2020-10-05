@@ -4,10 +4,10 @@ import { InicioComponent } from './Components/inicio/inicio.component';
 import { ContactoComponent } from './Components/contacto/contacto.component';
 import { ProductosComponent } from './Components/productos/productos.component';
 import { MiListaComponent } from './Components/mi-lista/mi-lista.component';
-import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { ReportesComponent } from './Components/producto/producto.component';
-import { DetalleComponent } from './components/pedidos/detalle/detalle.component';
-import { InventariosComponent } from './components/inventarios/inventarios.component';
+import { DetalleComponent } from './Components/pedidos/detalle/detalle.component';
+import { InventariosComponent } from './Components/inventarios/inventarios.component';
 
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent },
