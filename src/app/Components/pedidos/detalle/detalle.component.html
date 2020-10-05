@@ -1,0 +1,111 @@
+<div id="container">
+	<div id="sidebar">
+		<div class="bar pt-3 text-center">
+			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;">
+		</div>
+
+		<div class="bar pt-5 mt-5 text-center">
+			<img class="p-2 selected" src="./assets/img/carcom.svg" alt="" (click)="pedidos()">
+		</div>
+
+		<div class="bar pt-2 text-center">
+			<img src="./assets/img/caja.svg" alt="" (click)="inventario()">
+		</div>
+
+		<div class="bar pt-2 text-center">
+			<img src="./assets/img/inventarios.svg" alt="" (click)="reportes()">
+		</div>
+
+		<div class="bar pt-2 text-center">
+			<img src="./assets/img/reportes.svg" alt="">
+    </div>
+    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;left: 15%;">
+      <img src="./assets/img/toma.svg" alt="">
+    </div>
+    <div class="bar pt-2 text-center" style="position: absolute;bottom: 10%;left: 15%;">
+      <img src="./assets/img/config.svg" alt="">
+    </div>
+    </div>
+    <div>
+        <div>
+            <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Pedido SK234</h3>
+        </div>
+        <section class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-md-4 float-left text-left">
+                        <div class="box px-4 py-2">
+                            <strong>Cliente:</strong>
+                            <br><br>
+                            <span>{{inf.nombre}}</span>
+                            <br><br>
+                            <strong>Fecha:</strong>
+                            <br><br>
+                            <span>{{inf.fecha|date:'dd/MM/yyyy'}}</span>
+                            <br><br>
+                            <strong>Estado:</strong>
+                            <br><br>
+                            <mat-form-field appearance="outline" class="form-group px-0 w-100">
+                                <mat-select [(ngModel)]="inf.estado">
+                                  <mat-option value="Pendiente">Pendiente</mat-option>
+                                  <mat-option value="Activo">Activo</mat-option>
+                                  <mat-option value="Entregado">Entregado</mat-option>
+                                  <mat-option value="Cancelado">Cancelado</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <br><br>
+                        </div>
+                        <div class="box px-4 py-2 my-3">
+                            <strong>Facturación:</strong>
+                            <img src="./assets/img/place.svg" alt="" class="float-right" style="width: 15px;">
+                            <br><br>
+                            <span>
+                                {{inf.nombre}}<br>
+                                {{inf.direccion}}<br>
+                                {{inf.ciudad.desc}} <br>
+                                {{inf.tipoDoc}} {{inf.numDoc}} <br>
+                                {{inf.telefono}} <br>
+                                {{inf.correo}}
+                            </span>
+                            <br><br>
+                        </div>
+                        <div class="box px-4 py-2 my-3">
+                            <strong>Envio:</strong>
+                            <img src="./assets/img/place.svg" alt="" class="float-right" style="width: 15px;">
+                            <br><br>
+                            <span>
+                                {{inf.nombre}}<br>
+                                {{inf.direccion}}<br>
+                                {{inf.ciudad.desc}} <br>
+                                {{inf.tipoDoc}} {{inf.numDoc}} <br>
+                                {{inf.telefono}} <br>
+                                {{inf.correo}}
+                            </span>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-md-2 float-left text-right">
+                        <div class="w-100">
+                            <div class="w-100 head d-flex text-center py-3">
+                                <div class="col-6">Producto</div>
+                                <div class="col-2">Imagen</div>
+                                <div class="col-2">Código</div>
+                                <div class="col-2">Cantidad</div>
+                            </div>
+                            <div class="w-100 table">
+                                <div class="w-100 d-flex text-center py-3 " *ngFor="let row of productos;let index=index; let odd=odd; let even=even;" [ngClass]="{ odd: odd, even: even }">
+                                    <div class="col-6">{{row.producto.nombre}}</div>
+                                    <div class="col-2"> <img [src]="row.producto.urlImg" alt="" class="img-fluid"></div>
+                                    <div class="col-2">{{row.producto.codigo}}</div>
+                                    <div class="col-2">{{row.cantidad}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn py-3 px-4" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;" (click)="pedidos()">Guardar</div>
+                    </div>
+                </div>                
+            </div>
+            
+          </section>
+    </div>
+</div>

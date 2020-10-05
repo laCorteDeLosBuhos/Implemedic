@@ -9,6 +9,6 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Implemedica';
   constructor(private router:Router){
-    router.navigate(['Inicio'])
+    
   }
 }

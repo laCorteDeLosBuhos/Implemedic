@@ -1,84 +1,92 @@
-<ng-template #content let-modal>
-    <div class="modal-body container">
-        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
-          </button>
-      <form>
-        <div class="form-group">
-            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Iniciar sesión</h3>
-            <div class="input-group col-md-6 offset-3">
-                <label style="color: #35A09C; text-align: left;">Usuario</label>
-            </div>
-            <div class="input-group col-md-6 offset-3">
-                <input type="email" style="color: #000000;" class="form-control">
-            </div>
-            <div class="input-group col-md-6 offset-3 pt-3s">
-                <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
-                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-            </div>
-            <div class="input-group col-md-6 offset-3">
-                <input type="password" style="color: #000000;" class="form-control">
-            </div>
-            <h5 _ngcontent-deb-c103="" class="py-3" style="font-size: 12px;/* font-weight: bold; */color: #35A09C;text-align: center;">¿Olvidaste tu contraseña?</h5>
-            <div _ngcontent-msr-c103="" _ngcontent-dub-c17="" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;" (click)="modal.dismiss('Cross click');open(content2)"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;" > Ingresar</div>
-            <h5 _ngcontent-deb-c103="" class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿No tienes una cuenta?</h5>
-            <h5 _ngcontent-deb-c103="" class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" (click)="modal.dismiss('Cross click');open(content1)">Regístrate</h5>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body container">
+            <button type="button" class="close" aria-label="Close" style="outline: none;"  data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
+            </button>
+            <form>
+                <div class="form-group">
+                    <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Iniciar sesión</h3>
+                    <div class="input-group col-md-6 offset-3">
+                        <label style="color: #35A09C; text-align: left;">Usuario</label>
+                    </div>
+                    <div class="input-group col-md-6 offset-3">
+                        <input type="email" style="color: #000000;" class="form-control" [(ngModel)]="user" name="usuario">
+                    </div>
+                    <div class="input-group col-md-6 offset-3 pt-3s">
+                        <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
+                        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="input-group col-md-6 offset-3">
+                        <input type="password" style="color: #000000;" class="form-control" [(ngModel)]="constrase" name="password">
+                    </div>
+                    <h5 class="py-3" style="font-size: 12px;color: #35A09C;text-align: center;">¿Olvidaste tu contraseña?</h5>
+                    <div class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;" (click)="iniciar()"><img src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;" > Ingresar</div>
+                    <h5 class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿No tienes una cuenta?</h5>
+                    <h5 class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;"  data-dismiss="modal" data-toggle="modal" data-target="#exampleModal2" >Regístrate</h5>
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-</ng-template>
-<ng-template #content1 let-modal>
-    <div class="modal-body container">
-        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
-          </button>
-      <form>
-        <div class="form-group">
-            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Crear cuenta</h3>
-            <div class="float-left col-md-6 pt-5">
-                <div class="input-group">
-                    <label style="color: #35A09C; text-align: left;">Nombre</label>
+</div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+            <div class="modal-body container">
+                <button type="button" class="close" aria-label="Close" style="outline: none;" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
+                </button>
+            <form>
+                <div class="form-group">
+                    <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Crear cuenta</h3>
+                    <div class="float-left col-md-6 pt-5">
+                        <div class="input-group">
+                            <label style="color: #35A09C; text-align: left;">Nombre</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" style="color: #000000;" class="form-control">
+                        </div>
+                    </div>
+                    <div class="float-left col-md-6 pt-5">
+                        <div class="input-group">
+                            <label style="color: #35A09C; text-align: left;" value="secret">Celular</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" style="color: #000000;" class="form-control">
+                        </div>
+                    </div>
+                    <div class="float-left col-md-6 pt-5">
+                        <div class="input-group">
+                            <label style="color: #35A09C; text-align: left;">Correo</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" style="color: #000000;" class="form-control">
+                        </div>
+                    </div>
+                    <div class="float-left col-md-6 pt-5">
+                        <div class="input-group">
+                            <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
+                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" style="color: #000000;" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-check col-6 float-left offset-3 pt-4">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label style="font-size: 12px; /* font-weight: bold; */color: #35A09C; text-align: center;">Aceptar términos y condiciones</label>
+                    </div>
+                    <div class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;">Enviar</div>
+                    <h5 class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿Ya tienes una cuenta?</h5>
+                    <h5 class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal" >Inicia sesión</h5>
                 </div>
-                <div class="input-group">
-                    <input type="text" style="color: #000000;" class="form-control">
-                </div>
+            </form>
             </div>
-            <div class="float-left col-md-6 pt-5">
-                <div class="input-group">
-                    <label style="color: #35A09C; text-align: left;" value="secret">Celular</label>
-                </div>
-                <div class="input-group">
-                    <input type="number" style="color: #000000;" class="form-control">
-                </div>
-            </div>
-            <div class="float-left col-md-6 pt-5">
-                <div class="input-group">
-                    <label style="color: #35A09C; text-align: left;">Correo</label>
-                </div>
-                <div class="input-group">
-                    <input type="email" style="color: #000000;" class="form-control">
-                </div>
-            </div>
-            <div class="float-left col-md-6 pt-5">
-                <div class="input-group">
-                    <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
-                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                </div>
-                <div class="input-group">
-                    <input type="password" style="color: #000000;" class="form-control">
-                </div>
-            </div>
-            <div class="form-check col-6 float-left offset-3 pt-4">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label _ngcontent-tby-c103="" _ngcontent-deb-c103="" style="font-size: 12px; /* font-weight: bold; */color: #35A09C; text-align: center;">Aceptar términos y condiciones</label>
-            </div>
-            <div _ngcontent-msr-c103="" _ngcontent-dub-c17="" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;">Enviar</div>
-            <h5 _ngcontent-deb-c103="" class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿Ya tienes una cuenta?</h5>
-            <h5 _ngcontent-deb-c103="" class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" (click)="modal.dismiss('Cross click');open(content)">Inicia sesión</h5>
         </div>
-      </form>
     </div>
-</ng-template>
+</div>
 <ng-template #content2 let-modal>
     <div class="modal-body container">
         <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
@@ -151,64 +159,67 @@
       </form>
     </div>
 </ng-template>
-<div class="container px-0">
-    <nav class="navbar navbar-expand-sm navbar-light"> 
-        <a class="navbar-brand" href="#"> 
-            <img src= "./assets/img/imp.png" alt="logo" style="height: 70px;"> 
-        </a> 
-        <img src="./assets/img/user.svg" alt="" style="height: 30px;" class="d-md-none d-block">
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapse_Navbar"> 
-          
-            <span class="navbar-toggler-icon"></span> 
-        </button> 
-
-        <div class="collapse navbar-collapse"
-            id="collapse_Navbar"> 
-            <ul class="navbar-nav w-100"> 
-                <li class="nav-item active col-2"> 
-                    <a class="nav-link"
-                    data-toggle="tab"
-                    href="#home" (click)="inicio()"> 
-                    INICIO
-                    
-                </a>
-                </li> 
-                
-                <li class="nav-item col-3"> 
-                    <a class="nav-item active"> 
+<div class="banner">
+    <div class="container px-0">
+        <nav class="navbar navbar-expand-sm navbar-light"> 
+            <a class="navbar-brand" href="#"> 
+                <img src= "./assets/img/imp.png" alt="logo" style="height: 70px;"> 
+            </a> 
+            <img src="./assets/img/user.svg" alt="" style="height: 30px;" class="d-md-none d-block" style="cursor: pointer;">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapse_Navbar"> 
+              
+                <span class="navbar-toggler-icon"></span> 
+            </button> 
+    
+            <div class="collapse navbar-collapse"
+                id="collapse_Navbar"> 
+                <ul class="navbar-nav w-100"> 
+                    <li class="nav-item active col-2"> 
                         <a class="nav-link"
                         data-toggle="tab"
-                        href="#pro" (click)="productos()"> 
-                    PRODUCTOS 
+                        href="#home" (click)="inicio()"> 
+                        INICIO
+                        
                     </a>
-                    </a>
-                </li> 
-                
-                <li class="nav-item col-3"> 
-                    <a class="nav-link"
-                    data-toggle="tab"
-                    href="#ds" (click)="Contacto()"> 
-                    CONTACTO
-                </a> 
-                </li> 
-
-                <li class="nav-item col-3"> 
-                    <a class="nav-link"
-                    data-toggle="tab"
-                    href="#lang"> 
-                    MI LISTA
-                </a> 
-                </li> 
-            </ul> 
-        </div> 
-        <img src="./assets/img/user.svg" alt="" style="height: 30px;"  (click)="open(content)" class="d-md-block d-none" *ngIf="show">
-        <img src="./assets/img/user.svg" alt="" style="height: 30px;"  (click)="open(content)" class="d-md-block d-none" *ngIf="!show" [ngbPopover]="popContent2">
-        <ng-template #popContent2>
-            <div>Mi cuenta</div><hr>
-            <div>Cerrar sesión</div><hr>
-        </ng-template>
-    </nav> 
+                    </li> 
+                    
+                    <li class="nav-item col-3"> 
+                        <a class="nav-item active"> 
+                            <a class="nav-link"
+                            data-toggle="tab"
+                            href="#pro" (click)="productos()"> 
+                        PRODUCTOS 
+                        </a>
+                        </a>
+                    </li> 
+                    
+                    <li class="nav-item col-3"> 
+                        <a class="nav-link"
+                        data-toggle="tab"
+                        href="#ds" (click)="Contacto()"> 
+                        CONTACTO
+                    </a> 
+                    </li> 
+    
+                    <li class="nav-item col-3"> 
+                        <a class="nav-link"
+                        data-toggle="tab"
+                        href="#lang" (click)="MiLista()"> 
+                        MI LISTA
+                    </a> 
+                    </li> 
+                </ul> 
+            </div> 
+            <img src="./assets/img/user.svg" alt="" style="height: 30px;cursor: pointer;"   data-toggle="modal" data-target="#exampleModal" class="d-md-block d-none" *ngIf="show" >
+            <img src="./assets/img/user.svg" alt="" style="height: 30px;cursor: pointer;" class="d-md-block d-none" *ngIf="!show" [ngbPopover]="popContent2">
+            <ng-template #popContent2>
+                <div>Mi cuenta</div><hr>
+                <div>Cerrar sesión</div><hr>
+            </ng-template>
+        </nav> 
+    </div>
+    
 </div>

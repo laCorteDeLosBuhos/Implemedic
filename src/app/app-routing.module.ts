@@ -3,11 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './Components/inicio/inicio.component';
 import { ContactoComponent } from './Components/contacto/contacto.component';
 import { ProductosComponent } from './Components/productos/productos.component';
+import { MiListaComponent } from './Components/mi-lista/mi-lista.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { ReportesComponent } from './Components/producto/producto.component';
+import { DetalleComponent } from './components/pedidos/detalle/detalle.component';
+import { InventariosComponent } from './components/inventarios/inventarios.component';
 
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent },
   { path: 'Contacto', component: ContactoComponent },
   { path: 'Productos', component: ProductosComponent },
+  { path: 'MiLista', component: MiListaComponent },
+  { path: 'Pedidos', component: PedidosComponent },
+  { path: 'DetallePedidos', component: DetalleComponent },
+  { path: 'Reportes', component: ReportesComponent },
+  { path: 'Inventario', component: InventariosComponent },
   { path: '**', component: InicioComponent }
 ];
 

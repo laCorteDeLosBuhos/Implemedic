@@ -1,3 +1,57 @@
 <app-banner></app-banner>
-
+<section class="container">
+    <div class="row">
+        <div class="w-100 linneas d-flex my-4">
+            <div class="float-left col-2 text-center align-self-center active" (click)="todos()">
+                TODOS LOS PRODUCTOS
+            </div>
+            <div class="float-left col-2 text-center align-self-center" (click)="kenxin()">
+                LINEA KENXIN
+            </div>
+            <div class="float-left col-2 text-center align-self-center" (click)="laboratorio()">
+                LABORATORIO CLÍNICO
+            </div>
+            <div class="float-left col-2 text-center align-self-center" (click)="quirurgico()">
+                MATERIAL MEDICO QUIRURGICO
+            </div>
+            <div class="float-left col-2 text-center align-self-center" (click)="instrumental()">
+                INSTRUMENTAL QUIRURGICO
+            </div>
+            <div class="float-left col-2 text-center align-self-center" (click)="muebles()">
+                MUEBLES HOSPITALARIOS
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div style="border-bottom: 1px solid #5FBA51">
+            <img _ngcontent-igm-c106="" src="./assets/img/lupa.svg" alt="" style="width: 19px;">&nbsp;<input style="border: none; " [(value)] = "searchTerm" (input) = "search()"/>
+        </div>
+        <div class="col-12 float-left py-3" >
+            <div class="col-md-3 float-left pt-4 product" *ngFor="let produc of productoss">
+                <img src="{{produc.urlImg}}" alt="" class="img-fluid">
+                <h5 class="font-weight-bold">{{produc.nombre}}</h5>
+                <span style="font-size: 12px;">{{produc.desc}}</span>
+                <div class="col-6 float-left px-0" style="font-size:14px"><span style="color:#5FBA51">Marca:</span> {{produc.marca}} <br><span style="color:#5FBA51"> COD:</span> {{produc.codigo}} </div>
+                <div class="col-6 float-left"><div class="ver-mas" (click)="edit(produc)">Ver más</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-smart-modal #myModal identifier="myModal" *ngIf="info!=null" (onClose)="add(cantidad)">
+    <div class="row">
+        <div class="col-md-6 float-left">
+          <img [src]="myModal.getData()['urlImg']" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="mb-0">{{myModal.getData()['nombre']}}</h2>
+            <span style="letter-spacing: 0px; font-size: 15px;" class="my-0">{{myModal.getData()['descripcion']}}</span><br><br>
+            <span style="letter-spacing: 0px; font-size: 15px;" class="my-0"><strong style=" color: #5FBA51;">Marca:</strong>&nbsp;&nbsp;{{myModal.getData()['marca']}}</span><br>
+            <span style="letter-spacing: 0px; font-size: 15px;" class="my-0"><strong style=" color: #5FBA51;">COD:</strong>&nbsp;&nbsp;{{myModal.getData()['codigo']}}</span><br>
+            <span><strong style=" color: #5FBA51;">Cantidad</strong>&nbsp;&nbsp;<input [(ngModel)]="cantidad" type="number" width="20px"></span><br><br><br>
+            <div class="btn py-2 px-4 float-right my-3" (click)="myModal.close()" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">Agregar</div>
+          </div>
+    </div>
+</ngx-smart-modal>
 <app-footer></app-footer>
