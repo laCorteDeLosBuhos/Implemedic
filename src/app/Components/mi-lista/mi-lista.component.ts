@@ -19,6 +19,7 @@ export class MiListaComponent implements OnInit {
   direccion="";
   telefono="";
   Cuidad="";
+  negocio="";
   form:FormGroup;
   ciudades: any;
   constructor(private router:Router, private service:ServcioService, private Spinner:NgxSpinnerService) { }
@@ -32,6 +33,7 @@ export class MiListaComponent implements OnInit {
       direccion:new FormControl('',[Validators.required]),
       telefono:new FormControl('',[Validators.required]),
       Cuidad:new FormControl('',[Validators.required]),
+      negocio:new FormControl('',[Validators.required]),
       Comentario:new FormControl('',[])
     })
     this.Spinner.show();
@@ -39,6 +41,10 @@ export class MiListaComponent implements OnInit {
       this.ciudades=res;
       this.Spinner.hide();
     })
+  }
+  eliminar(a){
+    this.comentarios=this.comentarios.filter(llamada=> llamada.producto.codigo != a);
+    sessionStorage.setItem("Productos",JSON.stringify(this.comentarios))
   }
   pedidos(){
     if(this.form.valid){

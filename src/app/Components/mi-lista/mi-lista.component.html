@@ -14,8 +14,8 @@
                     <div class="float-left col-4 text-center" style="display: flex;justify-content: center;align-items: center;">{{comen.producto.nombre}}</div>
                     <div class="float-left col-2 text-center" style="display: flex;justify-content: center;align-items: center;"><img [src]="comen.producto.urlImg" alt="" class="img-fluid"></div>
                     <div class="float-left col-2 text-center" style="display: flex;justify-content: center;align-items: center;">{{comen.producto.codigo}}</div>
-                    <div class="float-left col-2 text-center" style="display: flex;justify-content: center;align-items: center;">{{comen.cantidad}}</div>
-                    <div class="float-left col-2 text-center" style="display: flex;justify-content: center;align-items: center;">Eliminar</div>
+                    <div class="float-left col-2 text-center" style="display: flex;justify-content: center;align-items: center;"><span class="mx-2" (click)="comen.cantidad=comen.cantidad-1">-</span>{{comen.cantidad}}<span class="mx-2"  (click)="comen.cantidad=comen.cantidad+1">+</span></div>
+                    <div class="float-left col-2 text-center" style="display: flex;justify-content: center;align-items: center;"><img src="./assets/img/Eliminar.png" alt="" (click)="eliminar(comen.producto.codigo)"></div>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                             <div class="form-group col-md-6 float-left">
                                 <label style="color: #35A09C; text-align: left;">Nombre</label><br>
                                 <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
-                                    <input type="text" matInput style="color: #000000;box-shadow: none;" class="form-control" formControlName="name">
+                                    <input type="text" matInput style="color: #000000;box-shadow: none;" formControlName="name">
                                 </mat-form-field>
                             </div>
                             <div class="form-group col-md-6 float-left">
@@ -44,7 +44,7 @@
                                     </mat-select>
                                   </mat-form-field>
                                   <mat-form-field appearance="outline"  class="form-group w-75 px-0 float-left">
-                                    <input type="number" matInput  style="color: #000000;" class="form-control" formControlName="identif">
+                                    <input type="number" matInput  style="color: #000000;" formControlName="identif">
                                   </mat-form-field>
                             </div>
                         </div>
@@ -52,13 +52,13 @@
                             <div class="form-group col-md-6 float-left">
                                 <label style="color: #35A09C; text-align: left;">Correo</label><br>
                                 <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
-                                    <input type="email" style="color: #000000;" class="form-control" formControlName="user" matInput>
+                                    <input type="email" style="color: #000000;" formControlName="user" matInput>
                                 </mat-form-field>
                             </div>
                             <div class="form-group col-md-6 float-left">
                                 <label style="color: #35A09C; text-align: left;">Dirección</label><br>
                                 <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
-                                    <input type="text" style="color: #000000;" class="form-control" formControlName="direccion" matInput>
+                                    <input type="text" style="color: #000000;" formControlName="direccion" matInput>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                             <div class="form-group col-md-6 float-left">
                                 <label style="color: #35A09C; text-align: left;">Teléfono</label><br>
                                 <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
-                                    <input type="number" style="color: #000000;" class="form-control" formControlName="telefono" matInput>
+                                    <input type="number" style="color: #000000;"  formControlName="telefono" matInput>
                                 </mat-form-field>
                             </div>
                             <div class="form-group col-md-6 float-left">
@@ -77,6 +77,12 @@
                                     </mat-select>
                                   </mat-form-field>
                             </div>
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label style="color: #35A09C; text-align: left;">¿a qué se dedica su negocio?</label><br>
+                            <mat-form-field appearance="outline" class="form-group w-100 px-0 float-left">
+                                <input formControlName="negocio" [(ngModel)]="negocio" matInput>
+                              </mat-form-field>
                         </div>
                     </div>
                 </div>
@@ -89,7 +95,7 @@
                             </mat-form-field>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn w-25" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;">Enviar</button>
+                            <button type="submit" class="btn w-25 my-4" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;">Enviar</button>
                         </div>
                     </div>
                 </div>

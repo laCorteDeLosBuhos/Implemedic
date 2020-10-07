@@ -55,10 +55,14 @@ html, body { height: 100%; }
     margin: 0px;
 }
 .mat-form-field-type-mat-input.mat-form-field-appearance-outline .mat-form-field-infix{
-    padding: 0px;
+    padding: .5em 0px;
+    border-top-width: 10px;
+    border-bottom: 2px solid transparent;
 }
 .mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix{
     padding: .5em 0px;
+    border-top-width: 10px;
+    border-bottom: 2px solid transparent;
 }
 .mat-form-field-appearance-outline div.mat-form-field-wrapper{
     margin: 0px; padding: 0px;

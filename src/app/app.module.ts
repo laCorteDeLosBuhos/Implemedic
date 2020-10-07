@@ -24,6 +24,7 @@ import { ReportesComponent } from './Components/producto/producto.component';
 import { DetalleComponent } from './Components/pedidos/detalle/detalle.component';
 import { InventariosComponent } from './Components/inventarios/inventarios.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FormsModule,
     ReactiveFormsModule,
     NgxDatatableModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    IvyCarouselModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
