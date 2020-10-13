@@ -1,7 +1,7 @@
 <div id="container">
 	<div id="sidebar">
 		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;">
+			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;" (click)="csesion()">
 		</div>
 
 		<div class="bar pt-5 mt-5 text-center">
@@ -27,29 +27,44 @@
     </div>
     </div>
     <div>
-        <div>
+        <div class="mx-5">
             <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Inventarios</h3>
         </div>
         <section class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="col-md-8 float-left text-right">
-                        <div class="w-100">
-                            <div class="w-100 head d-flex text-center py-3">
-                                <div class="col-4">Producto</div>
-                                <div class="col-4">Marca</div>
-                                <div class="col-2">Categorias</div>
-                                <div class="col-2">Unidades</div>
-                            </div>
-                            <div class="w-100 table">
-                                <div class="w-100 d-flex text-center py-3 " *ngFor="let row of productos;let index=index; let odd=odd; let even=even;" [ngClass]="{ odd: odd, even: even }">
-                                    <div class="col-4">{{row.producto}}</div>
-                                    <div class="col-4"> {{row.imagen}}</div>
-                                    <div class="col-2">{{row.codigo}}</div>
-                                    <div class="col-2">{{row.cantidad}}</div>
-                                </div>
-                            </div>
-                        </div>
+                        <ngx-datatable class="bootstrap" [rows]="productos" 
+                            [columnMode]="ColumnMode.force"
+                            [headerHeight]="50"
+                            [footerHeight]="50"
+                            rowHeight="60" [limit]="10">
+                            <ngx-datatable-column name="Nombre">
+                                <ng-template let-row="row.producto" ngx-datatable-cell-template>
+                                <div>{{row.nombre}}</div>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Marca">
+                                <ng-template let-row="row.producto" ngx-datatable-cell-template>
+                                <div>{{row.marca}}</div>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Linea">
+                                <ng-template let-row="row.producto" ngx-datatable-cell-template>
+                                <div>{{row.linea}}</div>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Codigo">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                <div>{{row.product_id}}</div>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="Unidades">
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                <div>{{row.cantidad}}</div>
+                                </ng-template>
+                            </ngx-datatable-column>
+                        </ngx-datatable>
                     </div>
                     <div class="col-md-3 offset-md-1 float-left">
                         <div style="border-radius: 21px;width: 100%;box-shadow: 0px 2px 4px #00000029;padding: 10px;text-align: end;" class="my-3">
@@ -60,7 +75,10 @@
                     </div>
                 </div>                
             </div>
-            
+            <div >
+                <img  src="./assets/img/up.png" alt="" style="width: 50px;" onclick="document.getElementById('archivo').click()">
+                <input type="file" name="archivo" id="archivo" (change)="subir($event)" hidden accept=".csv">
+            </div>
           </section>
     </div>
 </div>

@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./mi-lista.component.css']
 })
 export class MiListaComponent implements OnInit {
-  comentarios:any;
+  comentarios:any=[];
   name="";
   tipo="";
   identif="";
@@ -24,7 +24,12 @@ export class MiListaComponent implements OnInit {
   ciudades: any;
   constructor(private router:Router, private service:ServcioService, private Spinner:NgxSpinnerService) { }
   ngOnInit(): void {
-    this.comentarios=JSON.parse(sessionStorage.getItem("Productos"))
+    let productos=JSON.parse(sessionStorage.getItem("Productos"));
+    if(productos==null){
+      this.comentarios=[]
+    }else{
+      this.comentarios=productos
+    }
     this.form = new FormGroup({
       name:new FormControl('',[Validators.required]),
       tipo:new FormControl('',[Validators.required]),
@@ -74,5 +79,17 @@ export class MiListaComponent implements OnInit {
     }else{
       this.form.markAllAsTouched()
     }
+  }
+  disminuir(comen){
+    comen.cantidad=comen.cantidad-1;
+    if(comen.cantidad==0){
+      let productos=JSON.parse(sessionStorage.getItem("Productos"));
+      productos=productos.filter(function(el) { return el.producto.codigo !== comen.producto.codigo; })
+      sessionStorage.setItem("Productos",JSON.stringify(productos));
+      this.comentarios=this.comentarios.filter(function(el) { return el.producto.codigo !== comen.producto.codigo; }); 
+    }
+  }
+  add(comen){
+    comen.cantidad=comen.cantidad+1;
   }
 }

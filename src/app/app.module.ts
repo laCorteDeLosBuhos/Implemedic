@@ -25,6 +25,7 @@ import { DetalleComponent } from './Components/pedidos/detalle/detalle.component
 import { InventariosComponent } from './Components/inventarios/inventarios.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,8 +55,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     ReactiveFormsModule,
     NgxDatatableModule,
     NgxSpinnerModule,
-    IvyCarouselModule
-
+    IvyCarouselModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <div id="container">
 	<div id="sidebar">
 		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;">
+			<img src="./assets/img/usuario.svg"  (click)="csesion()" alt="" style="width: 37px;">
 		</div>
 
 		<div class="bar pt-5 mt-5 text-center">
@@ -27,7 +27,7 @@
     </div>
     </div>
     <div>
-        <div>
+        <div class="mx-5">
             <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Pedidos</h3>
         </div>
         <section class="container">
@@ -37,30 +37,49 @@
                     <input style="border: none; width: 90%;" placeholder="Buscar">
                     <img  src="./assets/img/lupa.svg" alt="" style="width: 19px;">
                   </div>
-                    <div class="table">
-                        <table class="table">
-                          <thead>
-                            <tr style="background-color: #5FBA51; color: #fff; text-align: center;">
-                              <th class="th-sm" style="border-top-left-radius: 21px;border: 1px;">Productos</th>
-                              <th class="th-sm" style="border: 1px;">Cantidad</th>
-                              <th class="th-sm" style="border: 1px;">Cliente</th>
-                              <th class="th-sm" style="border: 1px;">Fecha</th>
-                              <th class="th-sm" style="border-top-right-radius: 86px;border: 1px;">Estado</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let row of rows;let index=index; let odd=odd; let even=even;" [ngClass]="{ odd: odd, even: even }" (click)="detalle(row)">
-                              <td style="text-align: center;">{{row.productoss|slice:1:50}} ...</td>
-                              <td style="text-align: center;">{{row.cantidad}}</td>
-                              <td style="text-align: center;">{{row.nombre}}</td>
-                              <td style="text-align: center;">{{row.fecha|date:'dd/MM/yyyy'}}</td>
-                              <td style="text-align: center;">{{row.estado}}</td>
-                            </tr>
-                          </tbody>  
-                      </table>
-                    </div>  
+
+                  <ngx-datatable class="bootstrap" [rows]="rows" 
+                  columnMode="force"
+                  [headerHeight]="50"
+                  [footerHeight]="0"
+                  rowHeight="auto"
+                  [limit]="10">
+                    <ngx-datatable-column name="Pedido">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div  (click)="detalle(row)">SK{{row.id}}</div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Productos">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div  (click)="detalle(row)">{{row.productoss |slice:1:50}}</div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Cantidad">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div  (click)="detalle(row)">{{row.cantidad }}</div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Cliente">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div  (click)="detalle(row)">{{row.nombre}}</div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Fecha">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div  (click)="detalle(row)">{{row.fecha | date:'dd/MM/yyyy'}}</div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Estado">
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div  (click)="detalle(row)">{{row.estado}}</div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                  </ngx-datatable>
                 </div>
                 <div class="col-12">
+                  <div class="col-md-4 float-left text-left">
+                    <img src="./assets/img/up.png" alt="" style="width: 50px;">
+                  </div>
                   <div class="col-md-4 float-right text-right">
                     <div class="btn py-3 px-4" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">Reportes</div>
                   </div>

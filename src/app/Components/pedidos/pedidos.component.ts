@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServcioService } from 'src/app/service/servcio.service';
 import { DataService } from 'src/app/data.service'
+import { ColumnMode } from '@swimlane/ngx-datatable';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
   styleUrls: ['./pedidos.component.css']
 })
 export class PedidosComponent implements OnInit {
+  @ViewChild('dateColumn') dateColumn: TemplateRef<any>;
+  loadingIndicator = true;
+  reorderable = true;
+  columns = [{ name:'Pedido',prop: 'id' },{name:'Productos',prop:'productoss'}, { name: 'Cantidad',prop: 'cantidad' }, { name: 'Cliente', prop: 'nombre' }, { name: 'Fecha', prop: 'fecha' }, { name: 'Estado', prop: 'estado' }];
 
+  ColumnMode = ColumnMode;
   constructor(private router:Router,private service:ServcioService, private data:DataService) { }
 
   ngOnInit(): void {
@@ -40,5 +47,19 @@ export class PedidosComponent implements OnInit {
   }
   reportes(){
     this.router.navigate(['Reportes']);
+  }
+  csesion(){
+    Swal.fire({
+      title: '¿Quieres cerrar sesión?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Si`,
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['Inicio'])
+        sessionStorage.clear();
+      } 
+    })
   }
 }

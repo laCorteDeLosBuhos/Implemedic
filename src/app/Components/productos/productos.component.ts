@@ -10,7 +10,7 @@ import { ServcioService } from 'src/app/service/servcio.service';
 })
 export class ProductosComponent implements OnInit {
   
-  
+  p: number = 1;
   productoss: any;
   searchTerm: any="";
   info: any;
@@ -108,5 +108,8 @@ add(a){
   }
   product.push(added);
   sessionStorage.setItem("Productos",JSON.stringify(product));
+}
+filter(a){
+  this.productoss=this.productos.filter(res=>res.nombre.toLowerCase().includes(a.toLowerCase()));
 }
 }

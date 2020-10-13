@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
+import Swal from 'sweetalert2';
 import { ServcioService } from '../../service/servcio.service'
 declare const $: any;
 @Component({
@@ -16,7 +18,15 @@ export class BannerComponent implements OnInit {
   closeResult = '';
   constrase="";
   user="";
+  form:FormGroup;
   ngOnInit(): void {
+    this.form = new FormGroup({
+      name:new FormControl('',[Validators.required, Validators.maxLength(120)]),
+      celular:new FormControl('',[Validators.required, Validators.maxLength(13)]),
+      correo:new FormControl('',[Validators.required,Validators.maxLength(50)] ),
+      password:new FormControl('',[Validators.required,Validators.maxLength(40),Validators.minLength(6)]),
+      terminos:new FormControl('',[Validators.requiredTrue])
+    })
   }
   MiLista(){
     this.router.navigate(['MiLista'])
@@ -60,5 +70,27 @@ export class BannerComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  
+  signup(){
+    if(this.form.valid){
+      this.spinner.show();
+      let datos={
+        "email":this.form.get("correo").value,
+        "username":this.form.get("correo").value,
+        "password":this.form.get("password").value,
+        "celular":this.form.get("celular").value,
+        "nombre":this.form.get("name").value,
+        "role":["ROLE_USER"]
+      }
+      this.data.signup(datos).toPromise().then(res=>{
+        this.spinner.hide();
+        Swal.fire('Te has registrado',
+         'Ahora podras iniciar sesion para ver el seguimiento de tus productos',
+         'success').then(res=>{
+          $("#exampleModal2").modal('close')
+         })
+      })
+    }else{
+
+    }
+  }
 }

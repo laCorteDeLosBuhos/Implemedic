@@ -27,3 +27,13 @@
     border-radius: 999px;
     right: 0;
   }
+  .carousel-cell {
+    margin: auto 70px;
+    border-radius: 5px;
+  }
+
+  @media all and (max-width:700px){
+    .linea{
+      border-right: none !important;
+    }
+  }

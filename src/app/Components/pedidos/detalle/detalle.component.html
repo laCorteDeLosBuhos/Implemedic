@@ -1,7 +1,7 @@
 <div id="container">
 	<div id="sidebar">
 		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;">
+			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;" (click)="csesion()">
 		</div>
 
 		<div class="bar pt-5 mt-5 text-center">
@@ -27,8 +27,8 @@
     </div>
     </div>
     <div>
-        <div>
-            <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Pedido SK234</h3>
+        <div class="mx-5">
+            <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Pedido SK{{inf.id}}</h3>
         </div>
         <section class="container">
             <div class="row">
@@ -49,6 +49,7 @@
                                 <mat-select [(ngModel)]="inf.estado">
                                   <mat-option value="Pendiente">Pendiente</mat-option>
                                   <mat-option value="Activo">Activo</mat-option>
+                                  <mat-option value="Pagado">Pagado</mat-option>
                                   <mat-option value="Entregado">Entregado</mat-option>
                                   <mat-option value="Cancelado">Cancelado</mat-option>
                                 </mat-select>
@@ -97,11 +98,12 @@
                                     <div class="col-6">{{row.producto.nombre}}</div>
                                     <div class="col-2"> <img [src]="row.producto.urlImg" alt="" class="img-fluid"></div>
                                     <div class="col-2">{{row.producto.codigo}}</div>
-                                    <div class="col-2">{{row.cantidad}}</div>
+                                    <div class="col-2"><span class="mx-2" (click)="disminuir(row)" style="cursor: pointer;">-</span>{{row.cantidad}}<span class="mx-2" style="cursor: pointer;" (click)="add(row)">+</span></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="btn py-3 px-4" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;" (click)="pedidos()">Guardar</div>
+                        <div class="btn py-3 px-4 mx-2" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:red;font-weight:700;" (click)="pedidos()">Eliminar</div>
+                        <div class="btn py-3 px-4" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;" (click)="guardar()">Guardar</div>
                     </div>
                 </div>                
             </div>

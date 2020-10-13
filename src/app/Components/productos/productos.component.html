@@ -1,42 +1,46 @@
 <app-banner></app-banner>
 <section class="container">
     <div class="row">
-        <div class="w-100 linneas d-flex my-4">
-            <div class="float-left col-2 text-center align-self-center active" (click)="todos()">
+        <div class="w-100 linneas my-4">
+            <div class="float-left col-md-2 text-center align-self-center active" (click)="todos()">
                 TODOS LOS <br> PRODUCTOS
             </div>
-            <div class="float-left col-2 text-center align-self-center" (click)="kenxin()">
-                LINEA  <br>KENXIN
+            <div class="float-left col-md-2 text-center align-self-center" (click)="kenxin()">
+                LÍNEA   <br>KENXIN
             </div>
-            <div class="float-left col-2 text-center align-self-center" (click)="laboratorio()">
+            <div class="float-left col-md-2 text-center align-self-center" (click)="laboratorio()">
                 LABORATORIO  <br> CLÍNICO
             </div>
-            <div class="float-left col-2 text-center align-self-center" (click)="quirurgico()">
-                MATERIAL MEDICO QUIRURGICO
+            <div class="float-left col-md-2 text-center align-self-center" (click)="quirurgico()">
+                MATERIAL MÉDICO<br>QUIRÚRGICO
             </div>
-            <div class="float-left col-2 text-center align-self-center" (click)="instrumental()">
-                INSTRUMENTAL QUIRURGICO
+            <div class="float-left col-md-2 text-center align-self-center" (click)="instrumental()">
+                INSTRUMENTAL<br>QUIRÚRGICO
             </div>
-            <div class="float-left col-2 text-center align-self-center" (click)="muebles()">
-                MUEBLES HOSPITALARIOS
+            <div class="float-left col-md-2 text-center align-self-center" (click)="muebles()">
+                MUEBLES<br>HOSPITALARIOS
             </div>
         </div>
     </div>
 </section>
 <section class="container">
     <div class="row">
-        <div style="border-bottom: 1px solid #5FBA51">
-            <img _ngcontent-igm-c106="" src="./assets/img/lupa.svg" alt="" style="width: 19px;">&nbsp;<input style="border: none; " [(value)] = "searchTerm" (input) = "search()"/>
-        </div>
+        <div style="border-radius: 21px;width: 25%;box-shadow: 0px 2px 4px #00000029;padding: 10px;margin-left: 75%;text-align: end;" class="my-3">
+            <input style="border: none; width: 90%; outline: none;" placeholder="Buscar" (keyup)="filter($event.target.value)">
+            <img  src="./assets/img/lupa.svg" alt="" style="width: 19px;">
+          </div>
         <div class="col-12 float-left py-3" >
-            <div class="col-md-3 float-left pt-4 product" *ngFor="let produc of productoss">
+            <div class="col-md-3 float-left pt-4 product" *ngFor="let produc of productoss| paginate: { itemsPerPage: 12, currentPage: p }">
                 <img src="{{produc.urlImg}}" alt="" class="img-fluid">
+                <br>
                 <h5 class="font-weight-bold">{{produc.nombre}}</h5>
                 <span style="font-size: 12px;">{{produc.desc}}</span>
-                <div class="col-6 float-left px-0" style="font-size:14px"><span style="color:#5FBA51">Marca:</span> {{produc.marca}} <br><span style="color:#5FBA51"> COD:</span> {{produc.codigo}} </div>
+                <div class="col-6 float-left px-0" style="font-size:14px"><span style="color:#5FBA51">Marca:</span> {{produc.linea}} <br><span style="color:#5FBA51"> COD:</span> {{produc.codigo}} </div>
                 <div class="col-6 float-left"><div class="ver-mas" (click)="edit(produc)">Ver más</div></div>
             </div>
         </div>
+        <pagination-controls (pageChange)="p = $event"  previousLabel="Anterior"
+        nextLabel="Siguiente"></pagination-controls>
     </div>
 </section>
 <ngx-smart-modal #myModal identifier="myModal" *ngIf="info!=null" (onClose)="add(cantidad)">

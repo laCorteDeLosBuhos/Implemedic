@@ -38,47 +38,38 @@
                 <button type="button" class="close" aria-label="Close" style="outline: none;" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
                 </button>
-            <form>
+            <form [formGroup]="form" (submit)="signup()">
                 <div class="form-group">
                     <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Crear cuenta</h3>
                     <div class="float-left col-md-6 pt-5">
-                        <div class="input-group">
-                            <label style="color: #35A09C; text-align: left;">Nombre</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" style="color: #000000;" class="form-control">
-                        </div>
+                        <label style="color: #35A09C; text-align: left;">Nombre</label><br>
+                        <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
+                            <input type="text" matInput style="color: #000000;box-shadow: none;" formControlName="name">
+                        </mat-form-field>
                     </div>
                     <div class="float-left col-md-6 pt-5">
-                        <div class="input-group">
-                            <label style="color: #35A09C; text-align: left;" value="secret">Celular</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="number" style="color: #000000;" class="form-control">
-                        </div>
+                            <label style="color: #35A09C; text-align: left;">Celular</label>
+                            <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
+                                <input type="text" matInput style="color: #000000;box-shadow: none;" formControlName="celular">
+                            </mat-form-field>
                     </div>
                     <div class="float-left col-md-6 pt-5">
-                        <div class="input-group">
                             <label style="color: #35A09C; text-align: left;">Correo</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" style="color: #000000;" class="form-control">
-                        </div>
+                            <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
+                                <input type="email" matInput style="color: #000000;box-shadow: none;" formControlName="correo">
+                            </mat-form-field>
                     </div>
                     <div class="float-left col-md-6 pt-5">
-                        <div class="input-group">
                             <label style="color: #35A09C; text-align: left;" value="secret">Contraseña</label>
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="input-group">
-                            <input type="password" style="color: #000000;" class="form-control">
-                        </div>
+                            <mat-form-field appearance="outline"  class="form-group w-100 px-0 float-left">
+                                <input type="password" matInput style="color: #000000;box-shadow: none;" formControlName="password">
+                            </mat-form-field>
                     </div>
                     <div class="form-check col-6 float-left offset-3 pt-4">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="terminos">
                         <label style="font-size: 12px; /* font-weight: bold; */color: #35A09C; text-align: center;">Aceptar términos y condiciones</label>
                     </div>
-                    <div class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;">Enviar</div>
+                    <button type="submit" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;">Enviar</button>
                     <h5 class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿Ya tienes una cuenta?</h5>
                     <h5 class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal" >Inicia sesión</h5>
                 </div>
@@ -220,7 +211,7 @@
             <img src="./assets/img/user.svg" alt="" style="height: 30px;cursor: pointer;"   data-toggle="modal" data-target="#exampleModal" class="d-md-block d-none" *ngIf="show" >
             <img src="./assets/img/user.svg" alt="" style="height: 30px;cursor: pointer;" class="d-md-block d-none" *ngIf="!show" [ngbPopover]="popContent2">
             <ng-template #popContent2>
-                <div>Mi cuenta</div><hr>
+                <div (click)="open(content2)">Mi cuenta</div><hr>
                 <div>Cerrar sesión</div><hr>
             </ng-template>
         </nav> 
