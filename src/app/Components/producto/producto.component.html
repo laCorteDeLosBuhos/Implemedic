@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="bar pt-2 text-center">
-			<img  src="./assets/img/reportes.svg" alt="">
+			<img  src="./assets/img/reportes.svg" alt="" (click)="reporte()">
     </div>
     <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;">
       <img src="./assets/img/toma.svg" alt="">
@@ -83,7 +83,7 @@
                       <div>
                         <img src="./assets/img/EditarVerde.png" alt="" style="width: 30px; cursor: pointer;" (click)="edit(row)">
                         &nbsp;&nbsp;
-                        <img src="./assets/img/Eliminar.png" alt="" style="width: 30px;">
+                        <img src="./assets/img/Eliminar.png" alt="" style="width: 30px;" (click)="eliminar(row.codigo)">
                       </div>
                     </ng-template>
                   </ngx-datatable-column>

@@ -49,6 +49,9 @@ export class InventariosComponent implements OnInit {
   reportes(){
     this.router.navigate(['Reportes']);
   }
+  reporte(){
+    this.router.navigate(['Reporte']);
+  }
   subir(a){
     for (var i = 0; i < a.target.files.length; i++) {
       /* -- obtener archivo --*/

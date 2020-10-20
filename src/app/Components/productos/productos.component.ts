@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ServcioService } from 'src/app/service/servcio.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-productos',
@@ -16,7 +17,7 @@ export class ProductosComponent implements OnInit {
   info: any;
   productos: any;
   cantidad: any;
-  constructor(public ngxSmartModalService: NgxSmartModalService,private service:ServcioService, private spinner:NgxSpinnerService) { }
+  constructor(public ngxSmartModalService: NgxSmartModalService,private sharedService:SharedService,private service:ServcioService, private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -63,7 +64,7 @@ export class ProductosComponent implements OnInit {
     document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(4)").forEach(fun=>{
       fun.classList.add("active")
     })
-    this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "quirurgico");
+    this.productoss=this.productos.filter(res=>res.marca.toLowerCase().startsWith("medico quirurgico"));
   }
   instrumental(){
     document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
@@ -72,7 +73,7 @@ export class ProductosComponent implements OnInit {
     document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(5)").forEach(fun=>{
       fun.classList.add("active")
     })
-    this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "instrumental");
+    this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "instrumental quirurgico");
   }
   muebles(){
     document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
@@ -81,7 +82,7 @@ export class ProductosComponent implements OnInit {
     document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(6)").forEach(fun=>{
       fun.classList.add("active")
     })
-    this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "muebles");
+    this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "muebles hospitalarios");
   }
   search(): void {
     let term = this.searchTerm;
@@ -108,6 +109,7 @@ add(a){
   }
   product.push(added);
   sessionStorage.setItem("Productos",JSON.stringify(product));
+  this.sharedService.nextMessage(JSON.parse(sessionStorage.getItem("Productos")).length)
 }
 filter(a){
   this.productoss=this.productos.filter(res=>res.nombre.toLowerCase().includes(a.toLowerCase()));

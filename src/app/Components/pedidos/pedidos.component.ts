@@ -48,6 +48,9 @@ export class PedidosComponent implements OnInit {
   reportes(){
     this.router.navigate(['Reportes']);
   }
+  reporte(){
+    this.router.navigate(['Reporte']);
+  }
   csesion(){
     Swal.fire({
       title: '¿Quieres cerrar sesión?',

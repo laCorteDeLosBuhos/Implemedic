@@ -5,7 +5,8 @@ import { ContactoComponent } from './Components/contacto/contacto.component';
 import { ProductosComponent } from './Components/productos/productos.component';
 import { MiListaComponent } from './Components/mi-lista/mi-lista.component';
 import { PedidosComponent } from './Components/pedidos/pedidos.component';
-import { ReportesComponent } from './Components/producto/producto.component';
+import { ProductoComponent } from './Components/producto/producto.component';
+import { ReportesComponent } from './Components/reportes/reportes.component';
 import { DetalleComponent } from './Components/pedidos/detalle/detalle.component';
 import { InventariosComponent } from './Components/inventarios/inventarios.component';
 
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: 'MiLista', component: MiListaComponent },
   { path: 'Pedidos', component: PedidosComponent },
   { path: 'DetallePedidos', component: DetalleComponent },
-  { path: 'Reportes', component: ReportesComponent },
+  { path: 'Reportes', component: ProductoComponent },
   { path: 'Inventario', component: InventariosComponent },
+  { path: 'Reporte', component: ReportesComponent },
   { path: '**', component: InicioComponent }
 ];
 

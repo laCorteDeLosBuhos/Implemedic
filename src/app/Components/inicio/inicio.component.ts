@@ -8,7 +8,7 @@ import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  public carouselTileItems: Array<any> = [0, 1, 2, 3, 4, 5];
+  public carouselTileItems: Array<any> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,];
   carouselBanner:any={
     grid: { xs: 1, sm: 2, md: 3, lg: 3, xl:4, all: 2 },
     speed: 400,

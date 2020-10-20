@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ServcioService } from 'src/app/service/servcio.service';
 import Swal from 'sweetalert2';
 declare const $: any;
@@ -10,20 +11,24 @@ declare const $: any;
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.css']
 })
-export class ReportesComponent implements OnInit {
+export class ProductoComponent implements OnInit {
   info: any;
   dataImagen: any;
   imgSeleccionada: any;
   loadingIndicator = true;
   reorderable = true;
   ColumnMode = ColumnMode;
-  constructor(public ngxSmartModalService: NgxSmartModalService,private router:Router,private service:ServcioService) { }
+  constructor(public ngxSmartModalService: NgxSmartModalService,private router:Router,private service:ServcioService,private spinner:NgxSpinnerService) { }
   productos:any=[
-    {codigo:"016085756",nombre:"Tubo al vacío plástico",marca:"kenxin",descripcion:"Tubo al vacío plástico marca Kenxin",categoria:"linea kenxin"},
+    {codigo:"016085756",nombre:"Tubo al vacío plástico",marca:"kenxin",descripcion:"Tubo al vacío plástico marca Kenxin",categoria:"linea kenxin",urlImg:""},
   ]
   ngOnInit(): void {
+    this.spinner.show();
     this.service.getProducts().toPromise().then(result=>{
+      this.spinner.hide();
       this.productos=JSON.parse(JSON.stringify(result))
+    }).catch(call=>{
+      this.spinner.hide();
     })
   }
   inventario(){
@@ -34,6 +39,9 @@ export class ReportesComponent implements OnInit {
   }
   reportes(){
     this.router.navigate(['Reportes']);
+  }
+  reporte(){
+    this.router.navigate(['Reporte']);
   }
   edit(row){
     this.info=row;
@@ -55,10 +63,12 @@ export class ReportesComponent implements OnInit {
           const localUrl = event.target.result;
           this.imgSeleccionada = null;
           this.imgSeleccionada = localUrl;
+          this.spinner.show();
             this.service.setProducts({"nombre": this.dataImagen.name, "base64": this.imgSeleccionada.split(",")[1] }).toPromise().then(result => {
               Swal.fire('Productos Subidos', '', 'success');
               $("#archivo").val("")
               this.productos=result;
+              this.spinner.hide();
             }).catch(ees=>{
               Swal.fire('Ha ocurrido un error', '', 'error')
             });;
@@ -76,6 +86,27 @@ export class ReportesComponent implements OnInit {
   }
   salir(){
     this.ngxSmartModalService.resetModalData('myModal');
+  }
+  eliminar(a){
+    Swal.fire({
+      title: 'Deseas eliminar este producto',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Si`,
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.eliminarProductos(a).toPromise().then(resultado=>{
+          Swal.fire({
+            title: resultado
+          })
+        }).catch(error=>{
+          Swal.fire({
+            title: error.error.text
+          })
+        })
+      } 
+    })
   }
   csesion(){
     Swal.fire({

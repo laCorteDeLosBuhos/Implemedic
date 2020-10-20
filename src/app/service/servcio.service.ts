@@ -27,6 +27,12 @@ export class ServcioService {
   getInventarios():Observable<any>{
     return this.http.get(this.baseUrl+"inventarios/getAll",this.httpOptions)
   }
+  getReportes(datos:any):Observable<any>{
+    return this.http.get(this.baseUrl+"reportes/getAll/"+datos,this.httpOptions)
+  }
+  getReportesLinea(datos:any,datas:any):Observable<any>{
+    return this.http.get(this.baseUrl+"reportes/getAllMarca/"+datos+"/"+datas,this.httpOptions)
+  }
   newPedido(datos:any):Observable<any>{
     return this.http.post(this.baseUrl+"pedidos/newPedido",datos,this.httpOptions)
   }
@@ -35,6 +41,12 @@ export class ServcioService {
   }
   setProducts(datos:any):Observable<any>{
     return this.http.post(this.baseUrl+"product/setProducts",datos,this.httpOptions)
+  }
+  saveProducts(datos:any):Observable<any>{
+    return this.http.post(this.baseUrl+"product/editar",datos,this.httpOptions)
+  }
+  eliminarProductos(datos:any):Observable<any>{
+    return this.http.get(this.baseUrl+"product/eliminar/"+datos,this.httpOptions)
   }
   setInventarios(datos:any):Observable<any>{
     return this.http.post(this.baseUrl+"inventarios/setInventario",datos,this.httpOptions)

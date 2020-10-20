@@ -20,12 +20,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { PedidosComponent } from './Components/pedidos/pedidos.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { ReportesComponent } from './Components/producto/producto.component';
+import { ProductoComponent } from './Components/producto/producto.component';
 import { DetalleComponent } from './Components/pedidos/detalle/detalle.component';
 import { InventariosComponent } from './Components/inventarios/inventarios.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ReportesComponent } from './Components/reportes/reportes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +38,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MiListaComponent,
     ModalComponent,
     PedidosComponent,
-    ReportesComponent,
+    ProductoComponent,
     DetalleComponent,
-    InventariosComponent
+    InventariosComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
