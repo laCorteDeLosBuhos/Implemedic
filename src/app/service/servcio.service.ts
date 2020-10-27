@@ -27,6 +27,12 @@ export class ServcioService {
   getInventarios():Observable<any>{
     return this.http.get(this.baseUrl+"inventarios/getAll",this.httpOptions)
   }
+  getUsuarios():Observable<any>{
+    return this.http.get(this.baseUrl+"auth/getUsers",this.httpOptions)
+  }
+  setAdmin(datos:any):Observable<any>{
+    return this.http.post(this.baseUrl+"auth/setAdmin",datos,this.httpOptions)
+  }
   getReportes(datos:any):Observable<any>{
     return this.http.get(this.baseUrl+"reportes/getAll/"+datos,this.httpOptions)
   }

@@ -134,22 +134,6 @@
       </form>
     </div>
 </ng-template>
-<ng-template #content let-modal>
-    <div class="modal-body container">
-        <button type="button" class="close" aria-label="Close" style="outline: none;" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true" style=" color: #35A09C;">&times;</span>
-          </button>
-      <form>
-        <div class="form-group">
-            <h3 style="font-size: 35px;font-weight: bold; color: #35A09C; text-align:center;" class="py-5">Iniciar sesión</h3>
-            <h5 _ngcontent-deb-c103="" class="py-3" style="font-size: 12px;/* font-weight: bold; */color: #35A09C;text-align: center;">¿Olvidaste tu contraseña?</h5>
-            <div _ngcontent-msr-c103="" _ngcontent-dub-c17="" class="btn" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 2px 9px #329D9C36;border-radius: 15px;color: #fff;font-weight: 700;margin-left: 36%;" (click)="modal.dismiss('Cross click');open(content2)"><img _ngcontent-msr-c103="" src="./assets/img/paperplane_118202.svg" alt="" class="img-fluid" style="height: 30px;" > Ingresar</div>
-            <h5 _ngcontent-deb-c103="" class="pt-4" style="font-size: 12px; color: #000000;text-align: center;">¿No tienes una cuenta?</h5>
-            <h5 _ngcontent-deb-c103="" class="py-0" style="font-size: 12px; color: #35A09C;text-align: center;" (click)="modal.dismiss('Cross click');open(content1)">Regístrate</h5>
-        </div>
-      </form>
-    </div>
-</ng-template>
 <div class="banner">
     <div class="container px-0">
         <nav class="navbar navbar-expand-sm navbar-light"> 
@@ -210,8 +194,8 @@
             <img src="./assets/img/user.svg" alt="" style="height: 30px;cursor: pointer;"   data-toggle="modal" data-target="#exampleModal" class="d-md-block d-none" *ngIf="show" >
             <img src="./assets/img/user.svg" alt="" style="height: 30px;cursor: pointer;" class="d-md-block d-none" *ngIf="!show" [ngbPopover]="popContent2">
             <ng-template #popContent2>
-                <div (click)="open(content2)">Mi cuenta</div><hr>
-                <div>Cerrar sesión</div><hr>
+                <div (click)="pedidos()">Mi cuenta</div><hr>
+                <div (click)="csesion()">Cerrar sesión</div><hr>
             </ng-template>
         </nav> 
     </div>

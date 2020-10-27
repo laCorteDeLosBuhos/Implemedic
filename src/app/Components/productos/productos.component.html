@@ -25,12 +25,18 @@
 </section>
 <section class="container">
     <div class="row">
-        <div style="border-radius: 21px;width: 25%;box-shadow: 0px 2px 4px #00000029;padding: 10px;margin-left: 75%;text-align: end;" class="my-3">
-            <input style="border: none; width: 90%; outline: none;" placeholder="Buscar" (keyup)="filter($event.target.value)">
-            <img  src="./assets/img/lupa.svg" alt="" style="width: 19px;">
-          </div>
+        <div class="col-12">
+            <div style="border-radius: 21px;box-shadow: 0px 2px 4px #00000029;padding: 10px;text-align: end;" class="my-3 col-md-3 float-right">
+                <input style="border: none; width: 90%; outline: none;" placeholder="Buscar" (keyup)="filter($event.target.value)">
+                <img  src="./assets/img/lupa.svg" alt="" style="width: 19px;">
+            </div>
+            <div  class="my-3 mx-2 col-md-3 float-right" style="border-radius: 21px;box-shadow: 0px 2px 4px #00000029;padding: 10px;text-align: center;" (click)="destacados()"><img src="./assets/img/estrella.svg" alt="" style="width: 19px;">Productos desctacados</div>
+            <div  class="my-3 mx-2 col-md-3 float-right" style="border-radius: 21px;box-shadow: 0px 2px 4px #00000029;padding: 10px;text-align: center;" (click)="descuento()"><img src="./assets/img/check.svg" alt="" style="width: 19px;">Productos en descuento</div>    
+            
+        </div>
         <div class="col-12 float-left py-3" >
             <div class="col-md-3 float-left pt-4 product" *ngFor="let produc of productoss| paginate: { itemsPerPage: 12, currentPage: p }">
+                <div *ngIf="produc.destacado" style=" width: 150px; display: block; height: 30px; position: absolute; background: #5FBA51; transform: rotateZ(45deg); right: 0px;top: 50px;z-index: 1;text-align: center;padding-top: 5px;color: #fff;font-weight: bold;">Producto Destacado</div>
                 <img src="{{produc.urlImg}}" alt="" class="img-fluid" style="width: 247px; height: 247px;">
                 <br>
                 <h5 class="font-weight-bold">{{produc.nombre}}</h5>

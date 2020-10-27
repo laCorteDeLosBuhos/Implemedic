@@ -4,6 +4,7 @@ import { ServcioService } from 'src/app/service/servcio.service';
 import { DataService } from 'src/app/data.service'
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import Swal from 'sweetalert2';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
@@ -16,12 +17,14 @@ export class PedidosComponent implements OnInit {
   columns = [{ name:'Pedido',prop: 'id' },{name:'Productos',prop:'productoss'}, { name: 'Cantidad',prop: 'cantidad' }, { name: 'Cliente', prop: 'nombre' }, { name: 'Fecha', prop: 'fecha' }, { name: 'Estado', prop: 'estado' }];
 
   ColumnMode = ColumnMode;
-  constructor(private router:Router,private service:ServcioService, private data:DataService) { }
+  closeResult: string;
+  usuario: any;
+  constructor(private router:Router,private service:ServcioService, private data:DataService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.usuario=JSON.parse(sessionStorage.getItem("Usuario"));
     this.service.getPedidos().toPromise().then(result=>{
       this.rows=result;
-      console.log(this.rows)
       this.rows.forEach(res=>{
           var count = 0;
           var product= "";
@@ -32,6 +35,9 @@ export class PedidosComponent implements OnInit {
           res.productoss = product;
           res.cantidad=count;
       })
+      if(this.usuario.roles[0].name=='ROLE_USER'){
+        this.rows=this.rows.filter(res=>res.correo == this.usuario.email)
+      }
     })
   }
   rows = [];
@@ -51,6 +57,13 @@ export class PedidosComponent implements OnInit {
   reporte(){
     this.router.navigate(['Reporte']);
   }
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
   csesion(){
     Swal.fire({
       title: '¿Quieres cerrar sesión?',
@@ -64,5 +77,14 @@ export class PedidosComponent implements OnInit {
         sessionStorage.clear();
       } 
     })
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

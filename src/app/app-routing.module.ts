@@ -9,6 +9,7 @@ import { ProductoComponent } from './Components/producto/producto.component';
 import { ReportesComponent } from './Components/reportes/reportes.component';
 import { DetalleComponent } from './Components/pedidos/detalle/detalle.component';
 import { InventariosComponent } from './Components/inventarios/inventarios.component';
+import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'Reportes', component: ProductoComponent },
   { path: 'Inventario', component: InventariosComponent },
   { path: 'Reporte', component: ReportesComponent },
+  { path: 'Usuarios', component: UsuariosComponent },
   { path: '**', component: InicioComponent }
 ];
 

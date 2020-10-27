@@ -36,5 +36,7 @@ export class InicioComponent implements OnInit {
   inicio(){
     this.router.navigate(['Inicio'])
   }
-
+  productos(a){
+    this.router.navigate(['Productos'],{queryParams:{type:a}})
+  }
 }

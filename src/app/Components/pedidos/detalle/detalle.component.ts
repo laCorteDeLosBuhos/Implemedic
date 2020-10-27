@@ -12,12 +12,14 @@ import Swal from 'sweetalert2';
 export class DetalleComponent implements OnInit{
   productos:any=[
   ]
+  usuario: any;
   constructor(private router:Router,private data:DataService,private active:ActivatedRoute,private service:ServcioService) { }
   inf:any;
   ngOnInit(): void {
     this.data.getData()
     this.inf=this.data.shared;
     this.productos=this.inf.productos;
+    this.usuario=JSON.parse(sessionStorage.getItem("Usuario"));
   }
   inventario(){
     this.router.navigate(['Inventario']);

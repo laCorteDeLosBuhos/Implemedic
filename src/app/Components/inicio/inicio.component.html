@@ -12,7 +12,7 @@
             <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 40%;text-align: right;right: 5%;">
                 <h3 style="font-size: 2.3rem;font-weight: bold;">INSTRUMENTAL QUIRÚRGICO</h3>
                 <h5 style="font-size: 2rem;">Accesorios médicos</h5>
-                <div class="btn py-3 px-4 mt-5" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">COMPRAR</div>
+                <div class="btn py-3 px-4 mt-5" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;" (click)="productos('instrumental')">COMPRAR</div>
             </div>
             </div>
             <div class="carousel-item">
@@ -21,7 +21,7 @@
                 <h3 style="font-size: 2.3rem;font-weight: bold;">LÍNEA KENXIN</h3>
                 <h5 style="font-size: 1.75rem;">Importadores exclusivos</h5>
                 <h5 style="font-size: 2rem;">By Kenxin International CO.</h5>
-                <div class="btn py-3 px-4 mt-5" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">COMPRAR</div>
+                <div class="btn py-3 px-4 mt-5" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;" (click)="productos('kenxin')">COMPRAR</div>
             </div>
             </div>
             <div class="carousel-item">
@@ -29,7 +29,7 @@
             <div class="carousel-caption d-none d-md-block"  style="position: absolute; top: 40%;text-align: right;right: 5%;"> 
                 <h3 style="font-size: 2.3rem;font-weight: bold;">MUEBLES HOSPITALARIOS</h3>
                 <h5 style="font-size: 2rem;">Accesorios médicos</h5>
-                <div class="btn py-3 px-4 mt-5" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">COMPRAR</div>
+                <div class="btn py-3 px-4 mt-5" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;"  (click)="productos('muebles')">COMPRAR</div>
             </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     <br>
                     Somos importadores exclusivos de la línea Kenxin para Colombia, como tubos al vacío, agujas desechables, micro nebulizadores y equipo de diagnostico.
                 </div>
-                <div class="col-sm pt-4 text-right">
+                <div class="col-sm pt-4 text-right" (click)="productos('kenxin')">
                     <img src="./assets/img/ver.png" alt=""><span style="border-bottom: 1px solid #5FBA51;">Ver más</span>
                 </div>,<br>
             </div>
@@ -81,7 +81,7 @@
                     <br>
                     Equipos e insumos de alta calidad<br>para el uso en análisis de hematología,<br>bioquímica clínica y bacteriología.
                 </div>
-                <div class="col-sm pt-4 text-right">
+                <div class="col-sm pt-4 text-right" (click)="productos('laboratorio')">
                     <img src="./assets/img/ver.png" alt=""><span style="border-bottom:1px solid #5FBA51;">Ver más</span>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     <br>
                     Somos distribuidores de equipo médico de diagnostico,<br>materiales de intervención quirúrgica y productos sanitarios.
                 </div>
-                <div class="col-sm pt-4 text-right">
+                <div class="col-sm pt-4 text-right" (click)="productos('quirurgico')">
                     <img src="./assets/img/ver.png" alt=""><span style="border-bottom: 1px solid #5FBA51;">Ver más</span>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                     <br>
                     Tenemos toda la línea de muebles de consulta,<br>hospitalización y cirugía con la calidad exigida<br>por las diferentes normas Colombianas.
                 </div>
-                <div class="col-sm pt-4 text-right">
+                <div class="col-sm pt-4 text-right"  (click)="productos('muebles')">
                     <img src="./assets/img/ver.png" alt=""><span style="border-bottom: 1px solid #5FBA51;">Ver más</span>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                     <br>                    
                     Herramientas e implementos para la intervención quirúrgica,<br>suturas, sondas, electro bisturí y material relacionado con el campo.
                 </div>
-                <div class="col-sm pt-4 text-right">
+                <div class="col-sm pt-4 text-right" (click)="productos('instrumental')">
                     <img src="./assets/img/ver.png" alt=""><span style="border-bottom: 1px solid #5FBA51;">Ver más</span>
                 </div>
             </div>

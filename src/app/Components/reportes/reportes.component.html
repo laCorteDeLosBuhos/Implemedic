@@ -1,28 +1,5 @@
 <div id="container">
-	<div id="sidebar">
-		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg" (click)="csesion()" alt="" style="width: 37px;">
-		</div>
-
-		<div class="bar pt-5 mt-5 text-center">
-			<img src="./assets/img/carcoma.svg" alt="" (click)="pedidos()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/caja.svg" alt="" (click)="inventario()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/inventarios.svg" alt="" (click)="reportes()" >
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img  src="./assets/img/reportesv.svg" alt="" class="selected py-2">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;">
-      <img src="./assets/img/config.svg" alt="">
-    </div>
-    </div>
+	<app-sidebar></app-sidebar>
     <div>
         <div class="mx-5">
             <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Reportes</h3>

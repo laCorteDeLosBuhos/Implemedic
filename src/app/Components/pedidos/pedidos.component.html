@@ -1,32 +1,6 @@
 <div id="container">
-	<div id="sidebar">
-		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg"  (click)="csesion()" alt="" style="width: 37px;">
-		</div>
-
-		<div class="bar pt-5 mt-5 text-center">
-			<img class="p-2 selected" src="./assets/img/carcom.svg" alt="" (click)="pedidos()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/caja.svg" alt="" (click)="inventario()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/inventarios.svg" alt="" (click)="reportes()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/reportes.svg" alt="" (click)="reporte()">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;">
-      <img src="./assets/img/toma.svg" alt="">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 10%;">
-      <img src="./assets/img/config.svg" alt="">
-    </div>
-    </div>
-    <div>
+      <app-sidebar></app-sidebar>
+      <div>
         <div class="mx-5">
             <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Pedidos</h3>
         </div>
@@ -76,7 +50,7 @@
                     </ngx-datatable-column>
                   </ngx-datatable>
                 </div>
-                <div class="col-12">
+                <div class="col-12"  *ngIf="usuario.roles[0].name!='ROLE_USER'">
                   <div class="col-md-4 float-right text-right">
                     <div (click)="reporte()" class="btn py-3 px-4" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">Reportes</div>
                   </div>

@@ -1,31 +1,5 @@
 <div id="container">
-	<div id="sidebar">
-		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg" alt="" style="width: 37px;" (click)="csesion()">
-		</div>
-
-		<div class="bar pt-5 mt-5 text-center">
-			<img src="./assets/img/carcoma.svg" alt="" (click)="pedidos()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/product_button.svg" alt="" (click)="inventario()" class="selected">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/inventarios.svg" alt="" (click)="reportes()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/reportes.svg" alt="" (click)="reporte()">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;">
-      <img src="./assets/img/toma.svg" alt="">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 10%;">
-      <img src="./assets/img/config.svg" alt="">
-    </div>
-    </div>
+	<app-sidebar></app-sidebar>
     <div>
         <div class="mx-5">
             <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Inventarios</h3>

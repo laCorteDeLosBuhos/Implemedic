@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ServcioService } from 'src/app/service/servcio.service';
@@ -17,13 +18,34 @@ export class ProductosComponent implements OnInit {
   info: any;
   productos: any;
   cantidad: any;
-  constructor(public ngxSmartModalService: NgxSmartModalService,private sharedService:SharedService,private service:ServcioService, private spinner:NgxSpinnerService) { }
+  constructor(public ngxSmartModalService: NgxSmartModalService,private sharedService:SharedService,private service:ServcioService, private spinner:NgxSpinnerService,private routera:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.spinner.show();
     this.service.getProducts().toPromise().then(result=>{
       this.productoss=JSON.parse(JSON.stringify(result))
       this.productos=JSON.parse(JSON.stringify(result))
+      console.log(this.routera.snapshot.queryParamMap.get('type'))
+      switch (this.routera.snapshot.queryParamMap.get('type')) {
+        case "instrumental":
+          this.instrumental();
+          break;
+        case "muebles":
+            this.muebles();
+            break;
+        case "quirurgico":
+            this.quirurgico();
+            break;
+        case "laboratorio":
+              this.laboratorio();
+              break;
+        case "kenxin":
+              this.kenxin();
+              break;
+        default:
+          this.todos()
+          break;
+      }
       this.spinner.hide();
     })
     if(!sessionStorage.getItem("Productos")){
@@ -89,6 +111,17 @@ export class ProductosComponent implements OnInit {
     this.productoss= this.productos.filter(function(tag) {
         return tag.titulo.contains(term) >= 0;
     }); 
+  
+}
+destacados(){
+  this.productoss= this.productos.filter(function(tag) {
+    return tag.destacado == true;
+  })
+}
+descuento(){
+  this.productoss= this.productos.filter(function(tag) {
+    return tag.promocion == true;
+  })
 }
 edit(row){
   this.info=row;

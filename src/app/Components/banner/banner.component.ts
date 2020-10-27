@@ -32,6 +32,9 @@ export class BannerComponent implements OnInit {
     })
     this.sharedService.sharedMessage.subscribe(message => this.producto = message)
   }
+  pedidos(){
+    this.router.navigate(['Pedidos'])
+  }
   MiLista(){
     this.router.navigate(['MiLista'])
   }
@@ -61,6 +64,7 @@ export class BannerComponent implements OnInit {
       this.spinner.hide();
       $("#exampleModal").modal("hide");
       this.show=true;
+      sessionStorage.setItem("Usuario",JSON.stringify(result.usuario));
       sessionStorage.setItem("Token",result.accessToken);
       this.router.navigate(['Pedidos'])
     })
@@ -73,6 +77,20 @@ export class BannerComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+  csesion(){
+    Swal.fire({
+      title: '¿Quieres cerrar sesión?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Si`,
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['Inicio'])
+        sessionStorage.clear();
+      } 
+    })
   }
   signup(){
     if(this.form.valid){

@@ -81,8 +81,20 @@ export class ProductoComponent implements OnInit {
     }
   }
   editar(){
-    this.info=null;
-    this.ngxSmartModalService.resetModalData('myModal');
+    let datos=this.ngxSmartModalService.getModalData("myModal");
+    if(datos.destacado){
+      datos.destacado=1;
+    }else{
+      datos.destacado=0;
+    }if(datos.promocion){
+      datos.promocion=1;
+    }else{
+      datos.promocion=0;
+    }
+    this.service.saveProducts(datos).toPromise().then(res=>{
+      this.info=null;
+      this.ngxSmartModalService.resetModalData('myModal');
+    })
   }
   salir(){
     this.ngxSmartModalService.resetModalData('myModal');

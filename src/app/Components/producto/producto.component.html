@@ -1,31 +1,5 @@
 <div id="container">
-	<div id="sidebar">
-		<div class="bar pt-3 text-center">
-			<img src="./assets/img/usuario.svg" (click)="csesion()" alt="" style="width: 37px;">
-		</div>
-
-		<div class="bar pt-5 mt-5 text-center">
-			<img src="./assets/img/carcoma.svg" alt="" (click)="pedidos()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/caja.svg" alt="" (click)="inventario()">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img src="./assets/img/Agile_kanban_button.svg" alt="" (click)="reportes()" class="selected">
-		</div>
-
-		<div class="bar pt-2 text-center">
-			<img  src="./assets/img/reportes.svg" alt="" (click)="reporte()">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;">
-      <img src="./assets/img/toma.svg" alt="">
-    </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 10%;">
-      <img src="./assets/img/config.svg" alt="">
-    </div>
-    </div>
+	<app-sidebar></app-sidebar>
     <div>
         <div class="mx-5">
             <h3 style="font-size: 35px; color: #35A09C; text-align:center; font-weight: 500;" class="pt-5 col-12">Productos</h3>
@@ -104,15 +78,21 @@
     </div>
     <div class="col-md-6">
       <h1 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Tìtulo</h1>
-      <input type="text" [value]="myModal.getData()['nombre']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <input type="text" [(ngModel)]="myModal.getData()['nombre']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
       <h1 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Descripción</h1>
-      <textarea [value]="myModal.getData()['descripcion']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;"></textarea>
+      <textarea [(ngModel)]="myModal.getData()['descripcion']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;"></textarea>
       <h1 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Categoría</h1>
-      <input type="text" [value]="myModal.getData()['linea']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <input type="text" [(ngModel)]="myModal.getData()['linea']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
       <h1 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Marca</h1>
-      <input type="text" [value]="myModal.getData()['marca']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
-      <h1 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">COD</h1>
-      <input type="text" [value]="myModal.getData()['codigo']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <input type="text" [(ngModel)]="myModal.getData()['marca']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <h1 style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Presentacion</h1>
+      <input type="text" [(ngModel)]="myModal.getData()['presentacion']" class="col-11 rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <br><br>
+      <input type="checkbox" [(ngModel)]="myModal.getData()['destacado']" class="rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <label style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Destacado</label>
+      <br><br>
+      <input type="checkbox" [(ngModel)]="myModal.getData()['promocion']" class="rounded-pill border-0" style="box-shadow: 0px 3px 9px #00000029;">
+      <label style="letter-spacing: 0px;  color: #5FBA51;  font-weight: bold;  font-size: 20px;" class="my-0">Promocíon</label>
     </div>
   </div>
   <div class="btn py-2 px-4 float-right my-3" (click)="editar();myModal.close()" style="background: linear-gradient(#5FBA51,#329D9C );box-shadow: 0px 3px 9px #329D9C36;border-radius: 15px;color:#fff;font-weight:700;">Guardar</div>

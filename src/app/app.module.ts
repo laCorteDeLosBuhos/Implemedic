@@ -27,6 +27,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReportesComponent } from './Components/reportes/reportes.component';
+import { SidebarComponent } from './Components/sidebar/sidebar.component';
+import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,9 @@ import { ReportesComponent } from './Components/reportes/reportes.component';
     ProductoComponent,
     DetalleComponent,
     InventariosComponent,
-    ReportesComponent
+    ReportesComponent,
+    SidebarComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
