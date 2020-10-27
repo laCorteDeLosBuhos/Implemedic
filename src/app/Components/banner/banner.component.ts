@@ -66,7 +66,12 @@ export class BannerComponent implements OnInit {
       this.show=true;
       sessionStorage.setItem("Usuario",JSON.stringify(result.usuario));
       sessionStorage.setItem("Token",result.accessToken);
-      this.router.navigate(['Pedidos'])
+      if(result.usuario.roles[0].name=='ROLE_USER'){
+        this.show=false;
+        this.router.navigate(['Inicio']);
+      }else{
+        this.router.navigate(['Pedidos'])
+      }
     })
   }
   private getDismissReason(reason: any): string {

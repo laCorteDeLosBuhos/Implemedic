@@ -22,6 +22,7 @@ export class MiListaComponent implements OnInit {
   negocio="";
   form:FormGroup;
   ciudades: any;
+  usuario: any;
   constructor(private router:Router, private service:ServcioService, private Spinner:NgxSpinnerService) { }
   ngOnInit(): void {
     let productos=JSON.parse(sessionStorage.getItem("Productos"));
@@ -30,17 +31,33 @@ export class MiListaComponent implements OnInit {
     }else{
       this.comentarios=productos
     }
-    this.form = new FormGroup({
-      name:new FormControl('',[Validators.required]),
-      tipo:new FormControl('',[Validators.required]),
-      identif:new FormControl('',[Validators.required]),
-      user:new FormControl('',[Validators.required]),
-      direccion:new FormControl('',[Validators.required]),
-      telefono:new FormControl('',[Validators.required]),
-      Cuidad:new FormControl('',[Validators.required]),
-      negocio:new FormControl('',[Validators.required]),
-      Comentario:new FormControl('',[])
-    })
+    this.usuario=JSON.parse(sessionStorage.getItem("Usuario"));
+    if(sessionStorage.getItem("Usuario")==null){
+      this.form = new FormGroup({
+        name:new FormControl('',[Validators.required]),
+        tipo:new FormControl('',[Validators.required]),
+        identif:new FormControl('',[Validators.required]),
+        user:new FormControl('',[Validators.required]),
+        direccion:new FormControl('',[Validators.required]),
+        telefono:new FormControl('',[Validators.required]),
+        Cuidad:new FormControl('',[Validators.required]),
+        negocio:new FormControl('',[Validators.required]),
+        Comentario:new FormControl('',[])
+      })  
+    }else{
+      this.form = new FormGroup({
+        name:new FormControl(this.usuario.nombre,[Validators.required]),
+        tipo:new FormControl('',[Validators.required]),
+        identif:new FormControl('',[Validators.required]),
+        user:new FormControl(this.usuario.email,[Validators.required]),
+        direccion:new FormControl('',[Validators.required]),
+        telefono:new FormControl(this.usuario.celular,[Validators.required]),
+        Cuidad:new FormControl('',[Validators.required]),
+        negocio:new FormControl('',[Validators.required]),
+        Comentario:new FormControl('',[])
+      })
+  
+    }
     this.Spinner.show();
     this.service.getCiudades().toPromise().then(res=>{
       this.ciudades=res;
