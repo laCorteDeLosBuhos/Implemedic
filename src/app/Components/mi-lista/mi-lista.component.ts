@@ -82,7 +82,8 @@ export class MiListaComponent implements OnInit {
         "ciudad":this.Cuidad,
         "observaciones":this.form.get("Comentario").value,
         "estado":"Pendiente",
-        "productos":JSON.parse(sessionStorage.getItem("Productos"))
+        "productos":JSON.parse(sessionStorage.getItem("Productos")),
+        "dedica":this.form.get("negocio").value,
       }
       console.log(datos)
       this.service.newPedido(datos).toPromise().then(res=>{

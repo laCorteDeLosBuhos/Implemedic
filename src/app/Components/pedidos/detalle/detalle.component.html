@@ -32,6 +32,16 @@
                                 </mat-select>
                             </mat-form-field>
                             <br><br>
+                            <strong>Comentario:</strong>
+                            <br><br>
+                            <span>
+                                {{inf.observaciones}}
+                            </span>
+                            <strong>A que se dedica su negocio:</strong>
+                            <br><br>
+                            <span>
+                                {{inf.dedica}}
+                            </span>
                         </div>
                         <div class="box px-4 py-2 my-3">
                             <strong>Facturación:</strong>
@@ -43,7 +53,8 @@
                                 {{inf.ciudad.desc}} <br>
                                 {{inf.tipoDoc}} {{inf.numDoc}} <br>
                                 {{inf.telefono}} <br>
-                                {{inf.correo}}
+                                {{inf.correo}}<br>
+                                {{inf.dedica}}<br>
                             </span>
                             <br><br>
                         </div>
@@ -57,7 +68,7 @@
                                 {{inf.ciudad.desc}} <br>
                                 {{inf.tipoDoc}} {{inf.numDoc}} <br>
                                 {{inf.telefono}} <br>
-                                {{inf.correo}}
+                                {{inf.correo}}<br>
                             </span>
                             <br><br>
                         </div>

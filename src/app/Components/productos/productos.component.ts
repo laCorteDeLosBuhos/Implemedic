@@ -53,55 +53,55 @@ export class ProductosComponent implements OnInit {
     }
   }
   todos(){
-    document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2").forEach(fun=>{
       fun.classList.remove("active")
     })
-    document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(1)").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2:nth-child(1)").forEach(fun=>{
       fun.classList.add("active")
     })
     this.productoss=this.productos;
   }
   kenxin(){
-    document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2").forEach(fun=>{
       fun.classList.remove("active")
     })
-    document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(2)").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2:nth-child(2)").forEach(fun=>{
       fun.classList.add("active")
     })
     this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "kenxin");
   }
   laboratorio(){
-    document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2").forEach(fun=>{
       fun.classList.remove("active")
     })
-    document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(3)").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2:nth-child(3)").forEach(fun=>{
       fun.classList.add("active")
     })
     this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "laboratorio");
   }
   quirurgico(){
-    document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2").forEach(fun=>{
       fun.classList.remove("active")
     })
-    document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(4)").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2:nth-child(4)").forEach(fun=>{
       fun.classList.add("active")
     })
     this.productoss=this.productos.filter(res=>res.marca.toLowerCase().startsWith("medico quirurgico"));
   }
   instrumental(){
-    document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2").forEach(fun=>{
       fun.classList.remove("active")
     })
-    document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(5)").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2:nth-child(5)").forEach(fun=>{
       fun.classList.add("active")
     })
     this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "instrumental quirurgico");
   }
   muebles(){
-    document.querySelector(".linneas").querySelectorAll(".col-2").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2").forEach(fun=>{
       fun.classList.remove("active")
     })
-    document.querySelector(".linneas").querySelectorAll(".col-2:nth-child(6)").forEach(fun=>{
+    document.querySelector(".linneas").querySelectorAll(".col-md-2:nth-child(6)").forEach(fun=>{
       fun.classList.add("active")
     })
     this.productoss=this.productos.filter(res=>res.marca.toLowerCase() == "muebles hospitalarios");
