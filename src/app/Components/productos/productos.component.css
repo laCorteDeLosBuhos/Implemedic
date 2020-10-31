@@ -11,6 +11,7 @@
 }
 .linneas .col-md-2.active{
     font-weight: bold;
+    background-color: #615F5F12;
 }
 .linneas .col-md-2:last-child{
     border-right: none;
