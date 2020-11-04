@@ -110,10 +110,13 @@ export class BannerComponent implements OnInit {
       }
       this.data.signup(datos).toPromise().then(res=>{
         this.spinner.hide();
+        this.form.reset();
+        this.form.markAsUntouched();
         Swal.fire('Te has registrado',
          'Ahora podras iniciar sesion para ver el seguimiento de tus productos',
          'success').then(res=>{
           $("#exampleModal2").modal('close')
+          $("#exampleModal").modal('open');
          })
       })
     }else{

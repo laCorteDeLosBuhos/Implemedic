@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ServcioService } from 'src/app/service/servcio.service';
+import { SharedService } from 'src/app/shared.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,7 +24,7 @@ export class MiListaComponent implements OnInit {
   form:FormGroup;
   ciudades: any;
   usuario: any;
-  constructor(private router:Router, private service:ServcioService, private Spinner:NgxSpinnerService) { }
+  constructor(private router:Router, private service:ServcioService, private Spinner:NgxSpinnerService,private sharedService:SharedService) { }
   ngOnInit(): void {
     let productos=JSON.parse(sessionStorage.getItem("Productos"));
     if(productos==null){
@@ -93,6 +94,10 @@ export class MiListaComponent implements OnInit {
           'Hemos comenzado la solicitud de tu pedido, nos contactaremos contigo para validar contigo',
           'success'
         )
+        this.form.reset();
+        sessionStorage.setItem("Productos","[]");
+        this.comentarios=[];
+        this.sharedService.nextMessage("0");
       })
     }else{
       this.form.markAllAsTouched()

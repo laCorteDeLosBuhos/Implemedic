@@ -23,6 +23,7 @@
                         <h2 class="font-weight-bold text-center" style="color:#707070; font-size: 20px;">Filtros</h2>
                         <mat-form-field appearance="outline" class="form-group w-100 px-5">
                             <mat-select [(ngModel)]="linea" (selectionChange)="lineas()">
+                              <mat-option value="Todos">Todos</mat-option>
                               <mat-option value="KENXIN">KENXIN</mat-option>
                               <mat-option value="Laboratorio">Laboratorio</mat-option>
                               <mat-option value="Material Quirurgico">Material Quirurgico</mat-option>
