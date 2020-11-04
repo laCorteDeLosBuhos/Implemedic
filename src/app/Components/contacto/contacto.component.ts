@@ -35,6 +35,15 @@ export class ContactoComponent implements OnInit {
       }
       this.service.contacto(datos).toPromise().then(res=>{
         Swal.fire('Contacto realizado!', 'Muy pronto nos contactaremos contigo', 'success');
+      }).catch(reas=>{
+        console.log(reas)
+        if(reas.error.text=="correo enviado"){
+          Swal.fire('Contacto realizado!', 'Muy pronto nos contactaremos contigo', 'success');
+        }else{
+          Swal.fire('Ha ocurrido un error', '', 'error');
+        }
+        this.form.reset();
+        this.form.markAsUntouched();
       })
     }else{
       this.form.markAllAsTouched()

@@ -61,6 +61,6 @@ export class ServcioService {
     return this.http.post(this.baseUrl+"inventarios/setInventario",datos,this.httpOptions)
   }
   contacto(datos:any):Observable<any>{
-    return this.http.post(this.baseUrl+"correo/getAll",datos,this.httpOptions)
+    return this.http.post(this.baseUrl+"correo/getAll",datos)
   }
 }
