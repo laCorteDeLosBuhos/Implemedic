@@ -77,10 +77,10 @@
                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
                 <div class="input-group">
-                    <input type="password" style="color: #000000;" class="form-control">
+                    <input type="password" style="color: #000000;" class="form-control" name="newPassword" [(ngModel)]="newPassword">
                 </div>
             </div>
-            <div class="btn mt-5" style="background: linear-gradient(#5FBA51,#329D9C ); box-shadow: 0px 2px 9px #329D9C36; border-radius: 15px; color: #fff; font-weight: 700; margin-left: 36%;"><img style="height: 30px;">Actualizar</div>
+            <div class="btn mt-5" (click)="guardar()" style="background: linear-gradient(#5FBA51,#329D9C ); box-shadow: 0px 2px 9px #329D9C36; border-radius: 15px; color: #fff; font-weight: 700; margin-left: 36%;"><img style="height: 30px;">Actualizar</div>
         </div>
       </form>
     </div>

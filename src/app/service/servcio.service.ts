@@ -15,6 +15,9 @@ export class ServcioService {
   signup(datos:any):Observable<any>{
     return this.http.post(this.baseUrl+"auth/signup",datos,this.httpOptions)
   }
+  edit(datos:any):Observable<any>{
+    return this.http.post(this.baseUrl+"auth/edit",datos,this.httpOptions)
+  }
   getProducts():Observable<any>{
     return this.http.get(this.baseUrl+"product/getAll",this.httpOptions)
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ServcioService } from 'src/app/service/servcio.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,8 +13,8 @@ export class SidebarComponent implements OnInit {
   usuario: any;
   closeResult: string;
   actual: string;
-
-  constructor(private router:Router,private routera:ActivatedRoute,private modalService: NgbModal) { }
+  newPassword:any;
+  constructor(private router:Router,private routera:ActivatedRoute,private modalService: NgbModal,private service:ServcioService) { }
 
   ngOnInit(): void {
     this.actual=this.routera.snapshot.routeConfig.path;
@@ -40,6 +41,32 @@ export class SidebarComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+  }
+  guardar(){
+    let datos={
+      id:this.usuario.id,
+      nombre:this.usuario.nombre,
+      celular:this.usuario.celular,
+      email:this.usuario.email,
+      username:this.usuario.username,
+      password:this.usuario.password
+    }
+    if(this.newPassword!=null && this.newPassword!=""){
+      datos.password=this.newPassword
+    }
+    Swal.fire({
+      title: '¿Deseas cambiar tu informacion de usuario?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Si`,
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.edit(datos).toPromise().then(res=>{
+          this.modalService.dismissAll('');
+        })
+      } 
+    })
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
