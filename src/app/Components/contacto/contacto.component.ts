@@ -21,6 +21,7 @@ export class ContactoComponent implements OnInit {
       correo:new FormControl('',[Validators.required]),
       telefono:new FormControl('',[Validators.required]),
       dedica:new FormControl('',[Validators.required]),
+      persona:new FormControl('',[Validators.required]),
       desc:new FormControl('',[Validators.required])
     })  
   }
@@ -31,6 +32,7 @@ export class ContactoComponent implements OnInit {
         "correo": this.form.get("correo").value,
         "telefono": this.form.get("telefono").value,
         "dedica":this.form.get("dedica").value,
+        "persona":this.form.get("persona").value,
         "comentario":this.form.get("desc").value
       }
       this.service.contacto(datos).toPromise().then(res=>{

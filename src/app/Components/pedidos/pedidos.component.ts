@@ -19,6 +19,7 @@ export class PedidosComponent implements OnInit {
   ColumnMode = ColumnMode;
   closeResult: string;
   usuario: any;
+  rowss: any;
   constructor(private router:Router,private service:ServcioService, private data:DataService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -35,6 +36,7 @@ export class PedidosComponent implements OnInit {
           res.productoss = product;
           res.cantidad=count;
       })
+      this.rowss=this.rows;
       if(this.usuario.roles[0].name=='ROLE_USER'){
         this.rows=this.rows.filter(res=>res.correo == this.usuario.email)
       }
@@ -86,5 +88,8 @@ export class PedidosComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+  filter(a){
+    this.rows=this.rowss.filter(res=>res.nombre.toLowerCase().includes(a.toLowerCase()));
   }
 }

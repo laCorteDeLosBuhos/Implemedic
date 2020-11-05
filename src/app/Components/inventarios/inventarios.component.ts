@@ -18,6 +18,7 @@ export class InventariosComponent implements OnInit {
   reorderable = true;
   ColumnMode = ColumnMode;
   columns = [{ name:'codigo',prop: 'Codigo' },{name:'Nombre',prop:'nombre'}, { name: 'Marca',prop: 'marca' }, { name: 'Descripcion', prop: 'descripcion' }, { name: 'Linea', prop: 'linea' }, { name: 'Imagen', prop: 'urlImg'  ,  sortable: false}, { name: 'Edit' ,  sortable: false}];
+  productoss: any;
   constructor(public ngxSmartModalService: NgxSmartModalService,private router:Router,private service:ServcioService) { }
   productos:any=[]
   csesion(){
@@ -38,6 +39,7 @@ export class InventariosComponent implements OnInit {
   ngOnInit(): void {
     this.service.getInventarios().toPromise().then(result=>{
       this.productos=JSON.parse(JSON.stringify(result))
+      this.productoss=this.productos;
     })
   }
   inventario(){
@@ -80,5 +82,8 @@ export class InventariosComponent implements OnInit {
         Swal.fire('Ha ocurrido un error', 'Recuerda que debe ser un archivo csv el cual tenga el codigo del producto y la cantidad', 'error')
       }
     }
+  }
+  filter(a){
+    this.productos=this.productoss.filter(res=>res.producto.nombre.toLowerCase().includes(a.toLowerCase()));
   }
 }

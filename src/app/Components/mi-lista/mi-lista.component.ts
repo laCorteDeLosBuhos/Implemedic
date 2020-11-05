@@ -21,6 +21,7 @@ export class MiListaComponent implements OnInit {
   telefono="";
   Cuidad="";
   negocio="";
+  persona="";
   form:FormGroup;
   ciudades: any;
   usuario: any;
@@ -43,6 +44,7 @@ export class MiListaComponent implements OnInit {
         telefono:new FormControl('',[Validators.required]),
         Cuidad:new FormControl('',[Validators.required]),
         negocio:new FormControl('',[Validators.required]),
+        persona:new FormControl('',[Validators.required]),
         Comentario:new FormControl('',[])
       })  
     }else{
@@ -55,6 +57,7 @@ export class MiListaComponent implements OnInit {
         telefono:new FormControl(this.usuario.celular,[Validators.required]),
         Cuidad:new FormControl('',[Validators.required]),
         negocio:new FormControl('',[Validators.required]),
+        persona:new FormControl('',[Validators.required]),
         Comentario:new FormControl('',[])
       })
   
@@ -85,6 +88,7 @@ export class MiListaComponent implements OnInit {
         "estado":"Pendiente",
         "productos":JSON.parse(sessionStorage.getItem("Productos")),
         "dedica":this.form.get("negocio").value,
+        "persona":this.form.get("persona").value,
       }
       console.log(datos)
       this.service.newPedido(datos).toPromise().then(res=>{

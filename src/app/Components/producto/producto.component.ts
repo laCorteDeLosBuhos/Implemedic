@@ -18,6 +18,7 @@ export class ProductoComponent implements OnInit {
   loadingIndicator = true;
   reorderable = true;
   ColumnMode = ColumnMode;
+  productoss: any;
   constructor(public ngxSmartModalService: NgxSmartModalService,private router:Router,private service:ServcioService,private spinner:NgxSpinnerService) { }
   productos:any=[
     {codigo:"016085756",nombre:"Tubo al vacío plástico",marca:"kenxin",descripcion:"Tubo al vacío plástico marca Kenxin",categoria:"linea kenxin",urlImg:""},
@@ -27,6 +28,7 @@ export class ProductoComponent implements OnInit {
     this.service.getProducts().toPromise().then(result=>{
       this.spinner.hide();
       this.productos=JSON.parse(JSON.stringify(result))
+      this.productoss=this.productos;
     }).catch(call=>{
       this.spinner.hide();
     })
@@ -133,5 +135,8 @@ export class ProductoComponent implements OnInit {
         sessionStorage.clear();
       } 
     })
+  }
+  filter(a){
+    this.productos=this.productoss.filter(res=>res.nombre.toLowerCase().includes(a.toLowerCase()));
   }
 }
