@@ -22,10 +22,10 @@
         <img src="./assets/img/reportes.svg" alt="" (click)="reporte()" *ngIf="actual!='Reporte'">
         <img src="./assets/img/reportesv.svg" alt="" (click)="reporte()"  class="p-2 selected" *ngIf="actual=='Reporte'">
     </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;left: 15%;" *ngIf="usuario.roles[0].name!='ROLE_USER'">
+    <div class="bar pt-2 text-center" style="position: absolute;bottom: 5%;left: 5%;" *ngIf="usuario.roles[0].name!='ROLE_USER'">
     <img src="./assets/img/toma.svg" alt="" (click)="usuarios()">
     </div>
-    <div class="bar pt-2 text-center" style="position: absolute;bottom: 10%;left: 15%;">
+    <div class="bar pt-2 text-center" style="position: absolute;bottom: 10%;left: 5%;">
     <img src="./assets/img/config.svg" alt=""  (click)="open(content2)">
     </div>
 </div>
